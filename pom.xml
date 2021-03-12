@@ -8,9 +8,9 @@
     <version>2.2.0.BUILD-SNAPSHOT</version>
 
     <parent>
-        <groupId>es.us.psg2</groupId>
-        <artifactId>spring-petclinic.psg2.2021-G4-44</artifactId>
-        <version>1.0.0</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.4.RELEASE</version>
     </parent>
     <name>PSG2-2021-G4-44 Petclinic</name>
 
@@ -86,6 +86,20 @@
 			<properties>
 				<picUrl></picUrl>
 			</properties>
+		</developer>
+		
+		<developer>
+			<id>vicgragil</id>
+			<name>Victor</name>
+			<email>vicgragil@alum.us.com</email>
+			<url>https://github.com/vicgragil</url>
+			<roles>
+				<role>Dev Team</role>
+			</roles>
+			<properties>
+				<picUrl></picUrl>
+			</properties>
+			
 		</developer>
 		
 		</developers>
