@@ -31,6 +31,25 @@
         <spring-format.version>0.0.19</spring-format.version>
 
     </properties>
+    
+    <!-- Developers -->
+		<developers>
+			
+		<developer>
+			<id>iarrans</id>
+			<name>Isabel</name>
+			<email>isabelarrans@gmail.com</email>
+			<url>https://github.com/iarrans</url>
+			<roles>
+				<role>Scrum Master</role>
+				<role>Dev Team</role>
+			</roles>
+			<properties>
+				<picUrl></picUrl>
+			</properties>
+		</developer>
+			
+		</developers>
 
     <dependencies>
         <!-- Spring and Spring Boot dependencies -->
@@ -113,6 +132,7 @@
             <artifactId>bootstrap</artifactId>
             <version>${webjars-bootstrap.version}</version>
         </dependency>
+
 
         <!-- Testing -->
         <dependency>
