@@ -60,6 +60,19 @@
 			<properties>
 				<picUrl></picUrl>
 			</properties>
+			
+		</developer>
+				<developer>
+			<id>Mariia-2000</id>
+			<name>Maria</name>
+			<email>marcasbon@alum.us.com</email>
+			<url>https://github.com/Mariia-2000</url>
+			<roles>
+				<role>Dev Team</role>
+			</roles>
+			<properties>
+				<picUrl></picUrl>
+			</properties>
 		</developer>
 		
 		<developer>
