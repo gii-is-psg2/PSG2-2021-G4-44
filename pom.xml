@@ -49,6 +49,19 @@
 			</properties>
 		</developer>
 			
+		<developer>
+			<id>davbrican</id>
+			<name>David</name>
+			<email>davbrican@alum.us.com</email>
+			<url>https://github.com/davbrican</url>
+			<roles>
+				<role>Dev Team</role>
+			</roles>
+			<properties>
+				<picUrl></picUrl>
+			</properties>
+		</developer>
+		
 		</developers>
 
     <dependencies>
