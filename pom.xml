@@ -102,6 +102,18 @@
 			
 		</developer>
 		
+		<developer>
+			<id>jesvievaz</id>
+			<name>Jesus</name>
+			<email>vvjesus32@gmail.com</email>
+			<url>https://github.com/jesvievaz</url>
+			<roles>
+				<role>Dev Team</role>
+			</roles>
+			<properties>
+				<picUrl></picUrl>
+			</properties>
+		</developer>
 		</developers>
 
     <dependencies>
