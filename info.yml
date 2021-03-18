@@ -1,0 +1,32 @@
+project:
+  name: 'PSG2-2021-G4-44 Petclinic'
+  owner: 'L4'
+  teamId: '44'
+  identities:
+    github:
+      url: 'https://github.com/gii-is-psg2/PSG2-2021-G4-44'
+  members:
+    member1:
+      name: 'Isabel'
+      surname: 'Arrans' 
+      githubUsername: 'iarrans'
+    member2:
+      name: 'David'
+      surname: 'Brincau'
+      githubUsername: 'davbrican'
+    member3:
+      name: 'Maria'
+      surname: 'Castro'
+      githubUsername: 'Mariia-2000'
+    member4:
+      name: 'Victor Javier'
+      surname: 'Granero'
+      githubUsername: 'vicgragil'
+    member5:
+      name: 'Eugenio Benito'
+      surname: 'Vicente'
+      githubUsername: 'eugvicvaz'
+    member6:
+      name: 'Jesús'
+      surname: 'Viera'
+      githubUsername: 'jesvievaz'
