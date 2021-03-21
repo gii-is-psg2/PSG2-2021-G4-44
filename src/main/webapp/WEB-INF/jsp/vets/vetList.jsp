@@ -26,16 +26,17 @@
                     </c:forEach>
                     <c:if test="${vet.nrOfSpecialties == 0}">none</c:if>
                 </td>
+                <td>
+                <a href="<spring:url value="/vets.xml" htmlEscape="true" />">View as XML</a>
+            	</td> 
             </tr>
         </c:forEach>
         </tbody>
     </table>
 
-    <table class="table-buttons">
-        <tr>
-            <td>
-                <a href="<spring:url value="/vets.xml" htmlEscape="true" />">View as XML</a>
-            </td>            
-        </tr>
-    </table>
+  	<p>
+		<a href="/vets/new" class="btn  btn-success"><span
+			class="glyphicon glyphicon-plus" aria-hidden="true"></span>Añadir Veterinario</a>
+
+	</p>
 </petclinic:layout>

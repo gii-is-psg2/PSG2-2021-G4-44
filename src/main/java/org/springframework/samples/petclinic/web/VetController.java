@@ -16,13 +16,24 @@
 package org.springframework.samples.petclinic.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.samples.petclinic.model.PetType;
+import org.springframework.samples.petclinic.model.Specialty;
+import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Vets;
 import org.springframework.samples.petclinic.service.VetService;
+import org.springframework.samples.petclinic.service.exceptions.DuplicatedPetNameException;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Collection;
 import java.util.Map;
+
+import javax.validation.Valid;
 
 /**
  * @author Juergen Hoeller
@@ -39,6 +50,7 @@ public class VetController {
 	public VetController(VetService clinicService) {
 		this.vetService = clinicService;
 	}
+	
 
 	@GetMapping(value = { "/vets" })
 	public String showVetList(Map<String, Object> model) {
@@ -59,6 +71,26 @@ public class VetController {
 		Vets vets = new Vets();
 		vets.getVetList().addAll(this.vetService.findVets());
 		return vets;
+	}
+	
+	@GetMapping("/vets/new")
+	public String editNewVet(ModelMap model) {
+		model.addAttribute("vet",new Vet());
+		return "vets/createOrUpdateVetForm";
+	}
+	
+	@PostMapping("/vets/new")
+	public String saveNewVet(@Valid Vet vet, BindingResult binding,ModelMap model) {
+		if(binding.hasErrors()) {			
+			return "vets/createOrUpdateVetForm";
+		}else {
+			try{
+            	this.vetService.save(vet);
+            }catch(Exception ex){
+                return  "vets/createOrUpdateVetForm";
+            }
+			return "redirect:/" + "vets";
+		}
 	}
 
 }
