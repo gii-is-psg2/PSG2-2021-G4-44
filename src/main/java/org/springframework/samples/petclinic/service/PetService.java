@@ -73,7 +73,11 @@ public class PetService {
             }else
                 petRepository.save(pet);                
 	}
-
+	
+	@Transactional
+	public void removePet(Integer id) throws DataAccessException {
+	petRepository.remove(id);
+	}
 
 	public Collection<Visit> findVisitsByPetId(int petId) {
 		return visitRepository.findByPetId(petId);
