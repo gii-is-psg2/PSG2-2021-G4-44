@@ -15,11 +15,13 @@
  */
 package org.springframework.samples.petclinic.web;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.model.PetType;
 import org.springframework.samples.petclinic.model.Specialty;
 import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Vets;
+import org.springframework.samples.petclinic.service.SpecialtyService;
 import org.springframework.samples.petclinic.service.VetService;
 import org.springframework.samples.petclinic.service.exceptions.DuplicatedPetNameException;
 import org.springframework.stereotype.Controller;
@@ -27,7 +29,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Collection;
@@ -75,16 +79,21 @@ public class VetController {
 	
 	@GetMapping("/vets/new")
 	public String editNewVet(ModelMap model) {
+		Collection<Specialty> specialties = SpecialtyService.findSpecialties();
 		model.addAttribute("vet",new Vet());
+		model.addAttribute("specialties",specialties);
 		return "vets/createOrUpdateVetForm";
 	}
 	
 	@PostMapping("/vets/new")
-	public String saveNewVet(@Valid Vet vet, BindingResult binding,ModelMap model) {
-		if(binding.hasErrors()) {			
+	public String saveNewVet(@Valid Vet vet, @RequestParam(value="specialties", required= false) Collection<Specialty> specialties, BindingResult binding,ModelMap model) {
+		if(binding.hasErrors()) {		
 			return "vets/createOrUpdateVetForm";
 		}else {
 			try{
+				for(Specialty s : specialties){
+					vet.addSpecialty(s);
+				}
             	this.vetService.save(vet);
             }catch(Exception ex){
                 return  "vets/createOrUpdateVetForm";
@@ -92,5 +101,35 @@ public class VetController {
 			return "redirect:/" + "vets";
 		}
 	}
+	
+	@GetMapping("vets/{id}/edit")
+	public String editLogro(@PathVariable("id") int id, ModelMap model) {
+		Vet vet = vetService.findById(id);
+		Collection<Specialty> specialties = SpecialtyService.findSpecialties();
+		model.addAttribute("vet", vet);
+		model.addAttribute("specialties",specialties);
+		return "vets/createOrUpdateVetForm";
+	}
+
+	@PostMapping("vets/{id}/edit")
+	public String editLogro(@PathVariable("id") int id, @RequestParam(value="specialties", required= false)Collection<Specialty> specialties, @Valid Vet modifiedVet, BindingResult binding,
+			ModelMap model) {
+		Vet vet = vetService.findById(id);
+		if (binding.hasErrors()) {
+			return "vets/createOrUpdateVetForm";
+		} else {
+			for(Specialty s : specialties){
+				//if(vet.getSpecialties().contains(s)) {}
+				//else {
+				modifiedVet.addSpecialty(s);
+				//}
+			}
+			BeanUtils.copyProperties(modifiedVet, vet, "id");
+			vetService.save(vet);
+			model.addAttribute("message", "vet updated succesfully!");
+			return "redirect:/" +"vets";
+		}
+	}
+	
 
 }

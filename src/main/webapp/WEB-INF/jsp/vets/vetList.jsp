@@ -12,6 +12,8 @@
         <tr>
             <th>Name</th>
             <th>Specialties</th>
+            <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -29,6 +31,10 @@
                 <td>
                 <a href="<spring:url value="/vets.xml" htmlEscape="true" />">View as XML</a>
             	</td> 
+            	<td>
+            	<a href="/vets/${vet.id}/edit" class="btn  btn-success"><span
+					class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+            	</td>
             </tr>
         </c:forEach>
         </tbody>
