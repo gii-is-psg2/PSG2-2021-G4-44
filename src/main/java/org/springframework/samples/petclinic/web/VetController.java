@@ -34,7 +34,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -87,27 +89,40 @@ public class VetController {
 	
 	@PostMapping("/vets/new")
 	public String saveNewVet(@Valid Vet vet, @RequestParam(value="specialties", required= false) Collection<Specialty> specialties, BindingResult binding,ModelMap model) {
+		try{
 		if(binding.hasErrors()) {		
 			return "vets/createOrUpdateVetForm";
 		}else {
-			try{
-				for(Specialty s : specialties){
-					vet.addSpecialty(s);
+			
+				if (!(specialties==null)) {
+					for(Specialty s : specialties){
+						vet.addSpecialty(s);
+					}
 				}
             	this.vetService.save(vet);
-            }catch(Exception ex){
-                return  "vets/createOrUpdateVetForm";
             }
 			return "redirect:/" + "vets";
-		}
+			
+		}catch(IllegalArgumentException ex){
+			this.vetService.save(vet);
+            return  "vets/createOrUpdateVetForm";
+        }
 	}
 	
 	@GetMapping("vets/{id}/edit")
 	public String editLogro(@PathVariable("id") int id, ModelMap model) {
 		Vet vet = vetService.findById(id);
 		Collection<Specialty> specialties = SpecialtyService.findSpecialties();
+		Collection<Specialty> specialtiesVet = vet.getSpecialties();
+		List<Specialty> especialidadesRestantes = new ArrayList<Specialty>();
+		for(Specialty s: specialties) {
+			if(!specialtiesVet.contains(s)){
+				especialidadesRestantes.add(s);
+			}
+		}
 		model.addAttribute("vet", vet);
 		model.addAttribute("specialties",specialties);
+		model.addAttribute("specialtiesNoSeleccionadas",especialidadesRestantes);
 		return "vets/createOrUpdateVetForm";
 	}
 
@@ -115,21 +130,28 @@ public class VetController {
 	public String editLogro(@PathVariable("id") int id, @RequestParam(value="specialties", required= false)Collection<Specialty> specialties, @Valid Vet modifiedVet, BindingResult binding,
 			ModelMap model) {
 		Vet vet = vetService.findById(id);
+		try{
 		if (binding.hasErrors()) {
 			return "vets/createOrUpdateVetForm";
-		} else {
+		} 
+		BeanUtils.copyProperties(modifiedVet, vet, "id");
+		if (!(specialties==null)) {
 			for(Specialty s : specialties){
-				//if(vet.getSpecialties().contains(s)) {}
-				//else {
-				modifiedVet.addSpecialty(s);
-				//}
+				vet.addSpecialty(s);
 			}
+			}
+		vetService.save(vet);
+		model.addAttribute("message", "vet updated succesfully!");
+		return "redirect:/" +"vets";
+		}
+		catch(IllegalArgumentException ex){
 			BeanUtils.copyProperties(modifiedVet, vet, "id");
 			vetService.save(vet);
 			model.addAttribute("message", "vet updated succesfully!");
 			return "redirect:/" +"vets";
+			}
 		}
-	}
+	
 	
 
 }
