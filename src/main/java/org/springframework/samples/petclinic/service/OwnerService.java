@@ -43,7 +43,10 @@ import org.springframework.util.StringUtils;
 @Service
 public class OwnerService {
 
-	private OwnerRepository ownerRepository;	
+	private OwnerRepository ownerRepository;
+	
+	@Autowired
+	private PetService petService;
 	
 	@Autowired
 	private UserService userService;
@@ -75,5 +78,15 @@ public class OwnerService {
 		//creating authorities
 		authoritiesService.saveAuthorities(owner.getUser().getUsername(), "owner");
 	}		
+	
+	@Transactional
+	public void removeOwner(Integer id) throws DataAccessException {
+		if (ownerRepository.findById(id).getPets().size()>=1) {
+			for (Pet pet:ownerRepository.findById(id).getPets()) {
+				petService.removePet(pet.getId());
+			}
+		}
+		ownerRepository.remove(id);
+	}
 
 }
