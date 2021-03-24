@@ -1,0 +1,46 @@
+package org.springframework.samples.petclinic.service;
+
+import java.util.Collection;
+import java.util.Optional;
+
+import javax.validation.ConstraintViolationException;
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.samples.petclinic.model.CheckIn;
+import org.springframework.samples.petclinic.repository.CheckInRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+
+@Service
+public class CheckInService {
+
+	private CheckInRepository checkInRepository;
+
+
+	@Autowired
+	public CheckInService(CheckInRepository checkInRepository) {
+		this.checkInRepository = checkInRepository;
+	}		
+
+	@Transactional(readOnly = true)	
+	public Collection<CheckIn> findCheckIns() throws DataAccessException {
+		return checkInRepository.findAll();
+	}	
+	
+	@Transactional(readOnly = true)	
+	public Optional<CheckIn> findCheckInById(int checkInId) throws DataAccessException {
+		return checkInRepository.findById(checkInId);
+	}	
+	public void delete(CheckIn checkIn) {
+		checkInRepository.deleteById(checkIn.getId());
+	}
+	
+	@Transactional(rollbackFor = ConstraintViolationException.class)
+	public void saveCheckIn(@Valid CheckIn checkIn)  {
+		
+		checkInRepository.save(checkIn);
+	}	
+}
