@@ -66,5 +66,9 @@ public class VetService {
 		vetRepository.save(logro);
 	}
 	
+	@Transactional
+	public void removeVet(Integer id) throws DataAccessException {
+	vetRepository.remove(id);
+	}
 
 }

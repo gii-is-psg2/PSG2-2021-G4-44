@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
@@ -153,5 +154,10 @@ public class VetController {
 		}
 	
 	
+	@GetMapping(value = { "/vets/{vetId}/delete" })
+    public String deleteVet(@PathVariable("vetId") int vetId) {
+    	vetService.removeVet(vetId);
+    	return "redirect:/vets";
+    }
 
 }
