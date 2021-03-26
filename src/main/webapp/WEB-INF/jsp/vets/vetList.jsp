@@ -10,6 +10,10 @@
     <table id="vetsTable" class="table table-striped">
         <thead>
         <tr>
+            <th>Name</th>
+            <th>Specialties</th>
+            <th></th>
+            <th></th>
 
             <th>Nombre</th>
             <th>Especialidad</th>
@@ -34,11 +38,23 @@
                     </spring:url>
                     <a href="${fn:escapeXml(vetUrl)}">Delete vet</a>
                 </td>
+                <td>
+                <a href="<spring:url value="/vets.xml" htmlEscape="true" />">View as XML</a>
+            	</td> 
+            	<td>
+            	<a href="/vets/${vet.id}/edit" class="btn  btn-success"><span
+					class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+            	</td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 
+  	<p>
+		<a href="/vets/new" class="btn  btn-success"><span
+			class="glyphicon glyphicon-plus" aria-hidden="true"></span>A�adir Veterinario</a>
+
+	</p>
     <table class="table-buttons">
         <tr>
             <td>
