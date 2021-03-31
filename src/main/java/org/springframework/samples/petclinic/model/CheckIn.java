@@ -35,16 +35,16 @@ public class CheckIn extends BaseEntity {
 		return this.dateE;
 	}
 
-	public void setDateEntrada(LocalDate date) {
-		this.dateE = date;
+	public void setDateEntrada(LocalDate dateE) {
+		this.dateE = dateE;
 	}
 	
 	public LocalDate getDateSalida() {
 		return this.dateS;
 	}
 
-	public void setDateSalida(LocalDate date) {
-		this.dateS = date;
+	public void setDateSalida(LocalDate dateS) {
+		this.dateS = dateS;
 	}
 
 	public Pet getPet() {
