@@ -40,11 +40,11 @@
 			<div class="form-group has-feedback">
 		        <br><br>
 		        <p>Fecha de Entrada</p>
-		        <petclinic:inputField label="fecha_entrada" name="dateE"></petclinic:inputField>
+		        <input id="fecha_entrada" name="dateE"/>
 		        
 		        <br><br>
 		        <p>Fecha de Salida</p>
-		        <petclinic:inputField label="fecha_salida" name="dateS"></petclinic:inputField>
+		        <input id="fecha_salida" name="dateS"/>
 
 		        <br>
 	        </div>

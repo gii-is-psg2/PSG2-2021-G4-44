@@ -89,3 +89,6 @@ INSERT INTO visits(id,pet_id,visit_date,description) VALUES (2, 8, '2013-01-02',
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (3, 8, '2013-01-03', 'neutered');
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (4, 7, '2013-01-04', 'spayed');
 
+INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (1, '2021-04-10', '2021-04-27', 7);
+INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (2, '2021-05-10', '2021-05-27', 6);
+
