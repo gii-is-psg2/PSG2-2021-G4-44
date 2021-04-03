@@ -20,6 +20,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.samples.petclinic.model.Owner;
+import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.User;
 import org.springframework.samples.petclinic.repository.OwnerRepository;
 import org.springframework.stereotype.Service;
@@ -75,15 +76,6 @@ public class OwnerService {
 		authoritiesService.saveAuthorities(owner.getUser().getUsername(), "owner");
 	}		
 	
-	@Transactional
-	public void removeOwner(Integer id) throws DataAccessException {
-		if (ownerRepository.findById(id).getPets().size()>=1) {
-			for (Pet pet:ownerRepository.findById(id).getPets()) {
-				petService.removePet(pet.getId());
-			}
-		}
-		ownerRepository.remove(id);
-	}
 
 	public Collection<Owner> findAll(){
 		return ownerRepository.findAll();
