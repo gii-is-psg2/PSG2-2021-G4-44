@@ -140,5 +140,11 @@ public class OwnerController {
 		mav.addObject(this.ownerService.findOwnerById(ownerId));
 		return mav;
 	}
+	
+	@GetMapping(value = { "/owners/{ownerId}/delete" })
+    public String deleteOwner(@PathVariable("ownerId") int ownerId) {
+    	ownerService.removeOwner(ownerId);
+    	return "redirect:/owners";
+    }
 
 }

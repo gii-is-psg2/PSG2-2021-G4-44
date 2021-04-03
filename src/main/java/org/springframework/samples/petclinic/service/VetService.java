@@ -17,6 +17,8 @@ package org.springframework.samples.petclinic.service;
 
 import java.util.Collection;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.DataAccessException;
@@ -55,5 +57,18 @@ public class VetService {
 	public Collection<Vet> findVets() throws DataAccessException {
 		return vetRepository.findAll();
 	}	
+	
+	@Transactional public Vet findById(int id) {
+		return vetRepository.findById(id);
+	}
+
+	@Transactional public void save(@Valid Vet logro) {
+		vetRepository.save(logro);
+	}
+	
+	@Transactional
+	public void removeVet(Integer id) throws DataAccessException {
+	vetRepository.remove(id);
+	}
 
 }
