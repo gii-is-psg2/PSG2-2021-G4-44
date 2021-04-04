@@ -90,7 +90,7 @@
                                     <spring:param name="visitId" value="${visit.id}"/>
                                 </spring:url>
                                 <a href="${fn:escapeXml(visitUrl)}">Delete Visit</a>
-                        </td>
+                        		</td>
                             </tr>
                         </c:forEach>
                         <tr>

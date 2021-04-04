@@ -51,7 +51,7 @@ public interface VisitRepository extends Repository<Visit, Integer> {
 	
 	@Modifying
 	@Query("DELETE FROM Visit v WHERE v.id = :id")
-	void remove(@Param("id") Integer id);
+	void remove(@Param("id") Integer id) throws DataAccessException;
 	
 //	void deleteById(int id) throws DataAccessException;
 
