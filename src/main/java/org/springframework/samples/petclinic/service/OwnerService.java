@@ -20,7 +20,9 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.samples.petclinic.model.Owner;
+import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.User;
+import org.springframework.samples.petclinic.model.Visit;
 import org.springframework.samples.petclinic.repository.OwnerRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -82,7 +84,6 @@ public class OwnerService {
 				petService.removePet(pet.getId());
 			}
 		}
-		ownerRepository.remove(id);
 	}
 
 	public Collection<Owner> findAll(){
