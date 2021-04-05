@@ -46,7 +46,7 @@ import org.springframework.web.bind.annotation.PostMapping;
  * @author Michael Isvy
  */
 @Controller
-public class ChekInController {
+public class CheckInController {
 
 	private static final String VIEWS_CHECKIN_CREATE_OR_UPDATE_FORM = "checkIn/checkIns";
 	
@@ -84,9 +84,9 @@ public class ChekInController {
 			
 			return VIEWS_CHECKIN_CREATE_OR_UPDATE_FORM;
 		}else {
-			CheckIn check = checkin;
-			System.out.println(check.getId() + " " + check.getPet() + " " + check.getFechaEntrada() + " " + check.getFechaSalida());
-			//checkInService.saveCheckIn(checkin);
+			//System.out.println(check.getId() + " " + check.getPet() + " " + check.getFechaEntrada() + " " + check.getFechaSalida());
+			model.put("checkIn", checkin);
+			checkInService.saveCheckIn(checkin);
 			return "/welcome";
 		}
 	}
