@@ -36,6 +36,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 /**
@@ -71,6 +72,7 @@ public class ChekInController {
 		
 		CheckIn checkin = new CheckIn();
 		model.addAttribute("checkIn", checkin);
+		
 		return VIEWS_CHECKIN_CREATE_OR_UPDATE_FORM;
 	}
 	
@@ -83,7 +85,7 @@ public class ChekInController {
 			return VIEWS_CHECKIN_CREATE_OR_UPDATE_FORM;
 		}else {
 			CheckIn check = checkin;
-			System.out.println(check.getPet() + " " + check.getDateEntrada() + " " + check.getDateSalida());
+			System.out.println(check.getId() + " " + check.getPet() + " " + check.getFechaEntrada() + " " + check.getFechaSalida());
 			//checkInService.saveCheckIn(checkin);
 			return "/welcome";
 		}
