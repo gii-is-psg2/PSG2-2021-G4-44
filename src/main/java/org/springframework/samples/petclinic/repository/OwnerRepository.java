@@ -58,6 +58,10 @@ public interface OwnerRepository extends Repository<Owner, Integer> {
 	 * @throws org.springframework.dao.DataRetrievalFailureException if not found
 	 */	
     
+    @Modifying
+	@Query("DELETE FROM Owner o WHERE o.id = :id")
+	void remove(@Param("id") Integer id);
+    
 	@Query("SELECT owner FROM Owner owner left join fetch owner.pets WHERE owner.id =:id")
 	public Owner findById(@Param("id") int id);
 
