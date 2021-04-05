@@ -7,6 +7,8 @@
 
 <petclinic:layout pageName="home">
     <h2><fmt:message key="welcome"/></h2>
+    <a class="btn btn-default" href='<spring:url value="/checkIn/new" htmlEscape="true"/>'>Check In</a>
+    <br><br>
     <div class="row">
         <div class="col-md-12">
             <spring:url value="/resources/images/pet2.jpg" htmlEscape="true" var="petsImage"/>

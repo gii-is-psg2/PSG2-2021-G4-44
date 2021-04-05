@@ -73,7 +73,22 @@ public class PetService {
             }else
                 petRepository.save(pet);                
 	}
-
+	
+	@Transactional
+	public void removePet(Integer id) throws DataAccessException {
+		if (petRepository.findById(id).getVisits().size()>=1) {
+			for (Visit visit:petRepository.findById(id).getVisits()) {
+				removeVisit(visit.getId());
+			}
+		}
+	petRepository.remove(id);
+	}
+	
+	@Transactional
+	public void removeVisit(Integer id) throws DataAccessException {
+		if (visitRepository.findById(id).getId().equals(id))
+			visitRepository.remove(id);
+	}
 
 	public Collection<Visit> findVisitsByPetId(int petId) {
 		return visitRepository.findByPetId(petId);
