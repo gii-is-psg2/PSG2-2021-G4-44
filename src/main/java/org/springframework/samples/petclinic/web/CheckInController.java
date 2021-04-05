@@ -16,6 +16,7 @@
 package org.springframework.samples.petclinic.web;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -27,6 +28,7 @@ import org.springframework.samples.petclinic.model.CheckIn;
 import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.User;
+import org.springframework.samples.petclinic.service.CheckInService;
 import org.springframework.samples.petclinic.service.OwnerService;
 import org.springframework.samples.petclinic.service.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -34,6 +36,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 /**
@@ -43,9 +46,9 @@ import org.springframework.web.bind.annotation.PostMapping;
  * @author Michael Isvy
  */
 @Controller
-public class ChekInController {
+public class CheckInController {
 
-	private static final String VIEWS_CHECKIN_CREATE_OR_UPDATE_FORM = "checkIn/createOrUpdateCheckInForm";
+	private static final String VIEWS_CHECKIN_CREATE_OR_UPDATE_FORM = "checkIn/checkIns";
 	
 	@Autowired
 	OwnerService ownerService;
@@ -53,8 +56,14 @@ public class ChekInController {
 	@Autowired
 	UserService userService;
 
+	@Autowired
+	CheckInService checkInService;
+
 	@GetMapping(value = "/checkIn/new")
 	public String initCreationForm(ModelMap model) {
+		//Collection<CheckIn> lsCIs = checkInService.findCheckIns();
+		//model.addAttribute("lsCIs", lsCIs);
+		
 		User usuario = userService.findUser(SecurityContextHolder.getContext().getAuthentication().getName()).get();
 		
 		Owner owner = ownerService.findOwnerByUser(usuario);
@@ -63,6 +72,7 @@ public class ChekInController {
 		
 		CheckIn checkin = new CheckIn();
 		model.addAttribute("checkIn", checkin);
+		
 		return VIEWS_CHECKIN_CREATE_OR_UPDATE_FORM;
 	}
 	
@@ -74,8 +84,9 @@ public class ChekInController {
 			
 			return VIEWS_CHECKIN_CREATE_OR_UPDATE_FORM;
 		}else {
-			CheckIn check = checkin;
-			System.out.println(check.getPet() + " " + check.getDateEntrada() + " " + check.getDateSalida());
+			//System.out.println(check.getId() + " " + check.getPet() + " " + check.getFechaEntrada() + " " + check.getFechaSalida());
+			model.put("checkIn", checkin);
+			checkInService.saveCheckIn(checkin);
 			return "/welcome";
 		}
 	}

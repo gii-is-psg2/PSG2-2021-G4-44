@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
@@ -21,30 +23,32 @@ public class CheckIn extends BaseEntity {
 
 	@Column(name = "fecha_entrada")
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private LocalDate dateE;
+	private LocalDate fechaEntrada;
 	
 	@Column(name = "fecha_salida")
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private LocalDate dateS;
+	private LocalDate fechaSalida;
 
 	@ManyToOne
 	@JoinColumn(name = "pet_id")
+	@Cascade(CascadeType.ALL)
 	private Pet pet;
 	
-	public LocalDate getDateEntrada() {
-		return this.dateE;
+	
+	public LocalDate getFechaEntrada() {
+		return this.fechaEntrada;
 	}
 
-	public void setDateEntrada(LocalDate dateE) {
-		this.dateE = dateE;
+	public void setFechaEntrada(LocalDate fechaEntrada) {
+		this.fechaEntrada = fechaEntrada;
 	}
 	
-	public LocalDate getDateSalida() {
-		return this.dateS;
+	public LocalDate getFechaSalida() {
+		return this.fechaSalida;
 	}
 
-	public void setDateSalida(LocalDate dateS) {
-		this.dateS = dateS;
+	public void setFechaSalida(LocalDate fechaSalida) {
+		this.fechaSalida = fechaSalida;
 	}
 
 	public Pet getPet() {

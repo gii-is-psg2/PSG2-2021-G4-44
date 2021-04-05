@@ -10,14 +10,14 @@
 	<jsp:attribute name="customScript">
         <script>
 			$(function() {
-				$("#fecha_entrada").datepicker({
+				$("#fechaEntrada").datepicker({
 					dateFormat : 'yy/mm/dd'
 				});
 			});
 			
-
+			
 			$(function() {
-				$("#fecha_salida").datepicker({
+				$("#fechaSalida").datepicker({
 					dateFormat : 'yy/mm/dd'
 				});
 			});
@@ -40,11 +40,11 @@
 			<div class="form-group has-feedback">
 		        <br><br>
 		        <p>Fecha de Entrada</p>
-		        <petclinic:inputField label="fecha_entrada" name="dateE"></petclinic:inputField>
+		        <petclinic:inputField label="fecha_entrada" name="fechaEntrada"></petclinic:inputField>
 		        
 		        <br><br>
 		        <p>Fecha de Salida</p>
-		        <petclinic:inputField label="fecha_salida" name="dateS"></petclinic:inputField>
+		        <petclinic:inputField label="fecha_salida" name="fechaSalida"></petclinic:inputField>
 
 		        <br>
 	        </div>
