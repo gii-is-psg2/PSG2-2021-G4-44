@@ -21,30 +21,30 @@ public class CheckIn extends BaseEntity {
 
 	@Column(name = "fecha_entrada")
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private LocalDate dateE;
+	private LocalDate fechaEntrada;
 	
 	@Column(name = "fecha_salida")
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private LocalDate dateS;
+	private LocalDate fechaSalida;
 
 	@ManyToOne
 	@JoinColumn(name = "pet_id")
 	private Pet pet;
 	
-	public LocalDate getDateEntrada() {
-		return this.dateE;
+	public LocalDate getFechaEntrada() {
+		return this.fechaEntrada;
 	}
 
-	public void setDateEntrada(LocalDate date) {
-		this.dateE = date;
+	public void setFechaEntrada(LocalDate fechaEntrada) {
+		this.fechaEntrada = fechaEntrada;
 	}
 	
-	public LocalDate getDateSalida() {
-		return this.dateS;
+	public LocalDate getFechaSalida() {
+		return this.fechaSalida;
 	}
 
-	public void setDateSalida(LocalDate date) {
-		this.dateS = date;
+	public void setFechaSalida(LocalDate fechaSalida) {
+		this.fechaSalida = fechaSalida;
 	}
 
 	public Pet getPet() {
