@@ -223,5 +223,12 @@ class PetServiceTests {
 		assertThat(visitArr[0].getDate()).isNotNull();
 		assertThat(visitArr[0].getPet().getId()).isEqualTo(7);
 	}
+	
+	@Test
+	void shouldDeleteVisit() {
+		Collection<Visit> visits = this.petService.findVisitsByPetId(8);
+		this.petService.removeVisit(3);
+		assertThat(visits.size()).isEqualTo(1);
+	}
 
 }

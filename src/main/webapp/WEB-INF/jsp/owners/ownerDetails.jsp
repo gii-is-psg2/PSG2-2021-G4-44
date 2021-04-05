@@ -6,7 +6,9 @@
 
 <petclinic:layout pageName="owners">
 
-    <h2>Owner Information</h2>
+
+    <h2>Información del propietario</h2>
+
 
 
     <table class="table table-striped">
@@ -15,7 +17,9 @@
             <td><b><c:out value="${owner.firstName} ${owner.lastName}"/></b></td>
         </tr>
         <tr>
-            <th>Address</th>
+
+            <th>Dirección</th>
+
             <td><c:out value="${owner.address}"/></td>
         </tr>
         <tr>
@@ -23,7 +27,9 @@
             <td><c:out value="${owner.city}"/></td>
         </tr>
         <tr>
-            <th>Telephone</th>
+
+            <th>Teléfono</th>
+
             <td><c:out value="${owner.telephone}"/></td>
         </tr>
     </table>
@@ -33,10 +39,18 @@
     </spring:url>
     <a href="${fn:escapeXml(editUrl)}" class="btn btn-default">Edit Owner</a>
 
+    <spring:url value="{ownerId}/delete" var="deleteUrl">
+        <spring:param name="ownerId" value="${owner.id}"/>
+    </spring:url>
+    <a href="${fn:escapeXml(deleteUrl)}" class="btn btn-default">Eliminar Propietario</a>
+    
     <spring:url value="{ownerId}/pets/new" var="addUrl">
         <spring:param name="ownerId" value="${owner.id}"/>
     </spring:url>
-    <a href="${fn:escapeXml(addUrl)}" class="btn btn-default">Add New Pet</a>
+
+
+    <a href="${fn:escapeXml(addUrl)}" class="btn btn-default">Añadir Nueva Mascota</a>
+
 
     <br/>
     <br/>
@@ -55,20 +69,38 @@
                         <dd><petclinic:localDate date="${pet.birthDate}" pattern="yyyy-MM-dd"/></dd>
                         <dt>Type</dt>
                         <dd><c:out value="${pet.type.name}"/></dd>
+                        <dt>
+                                <spring:url value="/owners/{ownerId}/pets/{petId}/delete" var="petUrl">
+                                     <spring:param name="ownerId" value="${owner.id}"/>
+                                    <spring:param name="petId" value="${pet.id}"/>
+                                </spring:url>
+                                <a href="${fn:escapeXml(petUrl)}">Eliminar Mascota</a>
+                        </dt>
                     </dl>
                 </td>
                 <td valign="top">
                     <table class="table-condensed">
                         <thead>
                         <tr>
-                            <th>Visit Date</th>
-                            <th>Description</th>
+
+                            <th>Fecha de la Visita</th>
+                            <th>Descripcion</th>
+                            <th> </th>
+
                         </tr>
                         </thead>
                         <c:forEach var="visit" items="${pet.visits}">
                             <tr>
                                 <td><petclinic:localDate date="${visit.date}" pattern="yyyy-MM-dd"/></td>
                                 <td><c:out value="${visit.description}"/></td>
+                                <td>
+                                <spring:url value="/owners/{ownerId}/pets/{petId}/visits/{visitId}/delete" var="visitUrl">
+                                     <spring:param name="ownerId" value="${owner.id}"/>
+                                    <spring:param name="petId" value="${pet.id}"/>
+                                    <spring:param name="visitId" value="${visit.id}"/>
+                                </spring:url>
+                                <a href="${fn:escapeXml(visitUrl)}">Eliminiar Visita</a>
+                        		</td>
                             </tr>
                         </c:forEach>
                         <tr>
@@ -84,7 +116,9 @@
                                     <spring:param name="ownerId" value="${owner.id}"/>
                                     <spring:param name="petId" value="${pet.id}"/>
                                 </spring:url>
-                                <a href="${fn:escapeXml(visitUrl)}">Add Visit</a>
+
+                                <a href="${fn:escapeXml(visitUrl)}">Añadir Visita</a>
+
                             </td>
                         </tr>
                     </table>
