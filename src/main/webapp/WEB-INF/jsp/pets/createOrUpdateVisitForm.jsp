@@ -50,7 +50,7 @@
         </form:form>
 
         <br/>
-        <b>Visitas ateriores</b>
+        <b>Visitas anteriores</b>
         <table class="table table-striped">
             <tr>
                 <th>Fecha</th>

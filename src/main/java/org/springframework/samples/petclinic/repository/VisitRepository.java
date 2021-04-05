@@ -49,6 +49,8 @@ public interface VisitRepository extends Repository<Visit, Integer> {
 
 	List<Visit> findByPetId(Integer petId);
 	
+	Visit findById(int id);
+	
 	@Modifying
 	@Query("DELETE FROM Visit v WHERE v.id = :id")
 	void remove(@Param("id") Integer id) throws DataAccessException;

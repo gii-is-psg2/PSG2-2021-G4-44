@@ -86,7 +86,8 @@ public class PetService {
 	
 	@Transactional
 	public void removeVisit(Integer id) throws DataAccessException {
-	visitRepository.remove(id);
+		if (visitRepository.findById(id).getId().equals(id))
+			visitRepository.remove(id);
 	}
 
 	public Collection<Visit> findVisitsByPetId(int petId) {

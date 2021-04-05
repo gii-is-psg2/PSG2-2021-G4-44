@@ -58,27 +58,34 @@ public class VisitController {
 	 * @param petId
 	 * @return Pet
 	 */
-	@ModelAttribute("visit")
-	public Visit loadPetWithVisit(@PathVariable("petId") int petId) {
-		Pet pet = this.petService.findPetById(petId);
-		Visit visit = new Visit();
-		pet.addVisit(visit);
-		return visit;
-	}
+//	@ModelAttribute("visit")
+//	public Visit loadPetWithVisit(@PathVariable("petId") int petId) {
+//		Pet pet = this.petService.findPetById(petId);
+//		Visit visit = new Visit();
+//		pet.addVisit(visit);
+//		return visit;
+//	}
 
 	// Spring MVC calls method loadPetWithVisit(...) before initNewVisitForm is called
 	@GetMapping(value = "/owners/*/pets/{petId}/visits/new")
 	public String initNewVisitForm(@PathVariable("petId") int petId, Map<String, Object> model) {
+		Pet pet = this.petService.findPetById(petId);
+		Visit visit = new Visit();
+		visit.setPet(pet);
+		pet.addVisit(visit);
+		model.put("visit",visit);
+		model.put("pet", pet);
 		return "pets/createOrUpdateVisitForm";
 	}
 
 	// Spring MVC calls method loadPetWithVisit(...) before processNewVisitForm is called
 	@PostMapping(value = "/owners/{ownerId}/pets/{petId}/visits/new")
-	public String processNewVisitForm(@Valid Visit visit, BindingResult result) {
+	public String processNewVisitForm(@PathVariable("petId") int petId, @Valid Visit visit, BindingResult result) {
 		if (result.hasErrors()) {
 			return "pets/createOrUpdateVisitForm";
 		}
 		else {
+			visit.setPet(this.petService.findPetById(petId));
 			this.petService.saveVisit(visit);
 			return "redirect:/owners/{ownerId}";
 		}
