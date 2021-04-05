@@ -84,6 +84,7 @@ public class OwnerService {
 				petService.removePet(pet.getId());
 			}
 		}
+        
 		ownerRepository.remove(id);
 	}
 
