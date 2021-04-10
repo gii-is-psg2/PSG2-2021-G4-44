@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
@@ -29,7 +31,9 @@ public class CheckIn extends BaseEntity {
 
 	@ManyToOne
 	@JoinColumn(name = "pet_id")
+	@Cascade(CascadeType.ALL)
 	private Pet pet;
+	
 	
 	public LocalDate getFechaEntrada() {
 		return this.fechaEntrada;
