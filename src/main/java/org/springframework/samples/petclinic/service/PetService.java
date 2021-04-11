@@ -19,9 +19,11 @@ import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.samples.petclinic.model.CheckIn;
 import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.PetType;
 import org.springframework.samples.petclinic.model.Visit;
+import org.springframework.samples.petclinic.repository.CheckInRepository;
 import org.springframework.samples.petclinic.repository.PetRepository;
 import org.springframework.samples.petclinic.repository.VisitRepository;
 import org.springframework.samples.petclinic.service.exceptions.DuplicatedPetNameException;
@@ -42,12 +44,16 @@ public class PetService {
 	
 	private VisitRepository visitRepository;
 	
+	private CheckInRepository checkInRepository;
+	
 
 	@Autowired
 	public PetService(PetRepository petRepository,
-			VisitRepository visitRepository) {
+			VisitRepository visitRepository,
+			CheckInRepository checkInRepository) {
 		this.petRepository = petRepository;
 		this.visitRepository = visitRepository;
+		this.checkInRepository = checkInRepository;
 	}
 
 	@Transactional(readOnly = true)
@@ -79,6 +85,11 @@ public class PetService {
 		if (petRepository.findById(id).getVisits().size()>=1) {
 			for (Visit visit:petRepository.findById(id).getVisits()) {
 				removeVisit(visit.getId());
+			}
+		}
+		if (petRepository.findById(id).getCheckIns().size()>=1) {
+			for (CheckIn checkIn:petRepository.findById(id).getCheckIns()) {
+				checkInRepository.remove(checkIn.getId());
 			}
 		}
 	petRepository.remove(id);

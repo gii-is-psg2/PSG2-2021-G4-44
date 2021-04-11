@@ -90,4 +90,10 @@ public class CheckInController {
 			return "/welcome";
 		}
 	}
+	
+	@GetMapping(value = { "/checkIn/{checkInId}/delete" })
+    public String deleteCheckIn(@PathVariable("checkInId") int checkInId) {
+    	checkInService.removeCheckIn(checkInId);
+    	return "redirect:/checkIn/new";
+    }
 }

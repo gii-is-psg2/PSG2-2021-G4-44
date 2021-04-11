@@ -3,11 +3,13 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
-<!-- %@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %-->  
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <petclinic:layout pageName="home">
     <h2><fmt:message key="welcome"/></h2>
+    <sec:authorize access="hasAuthority('owner')">
     <a class="btn btn-default" href='<spring:url value="/checkIn/new" htmlEscape="true"/>'>Check In</a>
+    </sec:authorize>
     <br><br>
     <div class="row">
         <div class="col-md-12">

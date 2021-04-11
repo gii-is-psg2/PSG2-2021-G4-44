@@ -43,4 +43,9 @@ public class CheckInService {
 		
 		checkInRepository.save(checkIn);
 	}	
+	
+	@Transactional
+	public void removeCheckIn(Integer id) throws DataAccessException {
+	checkInRepository.remove(id);
+	}
 }

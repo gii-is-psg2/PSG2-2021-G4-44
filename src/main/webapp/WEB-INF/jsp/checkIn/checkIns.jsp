@@ -5,6 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
 
 <petclinic:layout pageName="checkIn">
 	<jsp:attribute name="customScript">
@@ -27,9 +28,15 @@
 	<jsp:body>
 	<h2>Listado de Check Ins</h2>
 	<c:forEach items="${lsCIs}" var="check">
-	<p>Mascota: ${check.pet}</p>
-	<p>Fecha de Entrada: ${check.fechaEntrada}</p>
-	<p>Fecha de Salida: ${check.fechaSalida}</p>
+		<p>Mascota: ${check.pet}</p>
+		<p>Fecha de Entrada: ${check.fechaEntrada}</p>
+		<p>Fecha de Salida: ${check.fechaSalida}</p>
+		 <td>
+             	<spring:url value="/checkIn/{checkInId}/delete" var="checkInUrl">
+                <spring:param name="checkInId" value="${check.id}"/>
+                </spring:url>
+                <a href="${fn:escapeXml(checkInUrl)}">Eliminar</a>
+         </td>
 	<br>
 	</c:forEach>
     <br><br>
