@@ -61,8 +61,8 @@ public class CheckInController {
 
 	@GetMapping(value = "/checkIn/new")
 	public String initCreationForm(ModelMap model) {
-		//Collection<CheckIn> lsCIs = checkInService.findCheckIns();
-		//model.addAttribute("lsCIs", lsCIs);
+		Collection<CheckIn> lsCIs = checkInService.findCheckIns();
+		model.addAttribute("lsCIs", lsCIs);
 		
 		User usuario = userService.findUser(SecurityContextHolder.getContext().getAuthentication().getName()).get();
 		
