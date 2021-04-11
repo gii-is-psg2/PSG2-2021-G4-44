@@ -25,6 +25,14 @@
     </jsp:attribute>
     
 	<jsp:body>
+                <p>${lsCIs}</p>
+	<c:forEach items="${lsCIs}" var="check">
+	<p>Mascota: ${check.pet}</p>
+	<p>Fecha de Entrada: ${check.fechaEntrada}</p>
+	<p>Fecha de Salida: ${check.fechaSalida}</p>
+	<br>
+	</c:forEach>
+                <br><br>
 	<h2>
         <c:if test="${checkIn['new']}">Nuevo </c:if> Check In
     </h2>        
