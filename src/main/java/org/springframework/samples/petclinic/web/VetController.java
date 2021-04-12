@@ -133,7 +133,7 @@ public class VetController {
 		model.addAttribute("specialties",specialties);
 		model.addAttribute("specialtiesNoSeleccionadas",especialidadesRestantes);
 		return "vets/createOrUpdateVetForm";
-	}
+	} 
 
 	@PostMapping("vets/{id}/edit")
 	public String editLogro(@PathVariable("id") int id, @RequestParam(value="specialties", required= false)Collection<Specialty> specialties, @Valid Vet modifiedVet, BindingResult binding,

@@ -24,7 +24,7 @@
 
                  <c:forEach items="${specialties}" var="sp">
                   <input type="checkbox" name="specialties" value="${sp.id}">  ${sp.name}<br>
-                   </c:forEach>
+                   </c:forEach> 
 
             </div>
                         </c:when>
