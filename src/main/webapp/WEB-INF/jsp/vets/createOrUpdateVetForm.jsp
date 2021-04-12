@@ -19,7 +19,7 @@
             
             <c:choose>
                         <c:when test="${vet['new']}">
-                            <div class="control-group">
+                            <div class="control-group" optional>
 
 
                  <c:forEach items="${specialties}" var="sp">
