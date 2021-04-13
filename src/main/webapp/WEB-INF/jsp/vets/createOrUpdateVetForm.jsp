@@ -15,7 +15,7 @@
             <petclinic:inputField label="First Name" name="firstName"/>
             <petclinic:inputField label="Last Name" name="lastName"/>
             <div class="control-group"> 
-            
+             
             
             <c:choose>
                         <c:when test="${vet['new']}">

@@ -51,7 +51,7 @@ import javax.validation.Valid;
 @Controller
 public class VetController {
 
-	private final VetService vetService;
+	private final VetService vetService; 
 	
 	private final SpecialtyService specialtyService;
 
