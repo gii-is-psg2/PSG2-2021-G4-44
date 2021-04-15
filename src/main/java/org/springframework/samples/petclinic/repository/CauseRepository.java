@@ -15,14 +15,21 @@
  */
 package org.springframework.samples.petclinic.repository;
 
+import java.util.Collection;
+
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.samples.petclinic.model.BaseEntity;
+import org.springframework.samples.petclinic.model.Cause;
+import org.springframework.samples.petclinic.model.CheckIn;
+import org.springframework.samples.petclinic.model.Donation;
+import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.PetType;
 
@@ -32,32 +39,24 @@ import org.springframework.samples.petclinic.model.PetType;
  * @author Michael Isvy
  * @since 15.1.2013
  */
-public interface CauseRepository extends Repository<Pet, Integer> {
 
-	/**
-	 * Retrieve all <code>PetType</code>s from the data store.
-	 * @return a <code>Collection</code> of <code>PetType</code>s
-	 */
-	@Query("SELECT ptype FROM PetType ptype ORDER BY ptype.name")
-	List<PetType> findPetTypes() throws DataAccessException;
+	public interface CauseRepository extends CrudRepository<Cause, Integer>{
+
+	   
+		void save(Cause cause) throws DataAccessException;
+	    
+	    @Query("SELECT cause FROM Cause cause where cause.id=:causeId")
+		Cause findByCauseId(@Param(value = "causeId") int causeId);
+		
+		@Query("SELECT sum(donation.amount) FROM Donation donation where donation.cause.id=:causeId")
+	    Double totalBudget(@Param(value = "causeId") int causeId);
+	    
+	    @Query("SELECT donation FROM Donation donation where donation.cause.id=:causeId")
+	    Collection<Donation> findDonations(@Param(value = "causeId") int causeId);
+	    
+	    @Query("SELECT c FROM Cause c")
+	    Collection<Cause> findAll();
+	    
+	}
+
 	
-	/**
-	 * Retrieve a <code>Pet</code> from the data store by id.
-	 * @param id the id to search for
-	 * @return the <code>Pet</code> if found
-	 * @throws org.springframework.dao.DataRetrievalFailureException if not found
-	 */
-	Pet findById(int id) throws DataAccessException;
-
-	/**
-	 * Save a <code>Pet</code> to the data store, either inserting or updating it.
-	 * @param pet the <code>Pet</code> to save
-	 * @see BaseEntity#isNew
-	 */
-	void save(Pet pet) throws DataAccessException;
-	
-	@Modifying
-	@Query("DELETE FROM Pet p WHERE p.id = :id")
-	void remove(@Param("id") Integer id);
-
-}
