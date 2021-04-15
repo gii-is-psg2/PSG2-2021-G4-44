@@ -51,11 +51,19 @@ import javax.validation.Valid;
 @Controller
 public class VetController {
 
-	private final VetService vetService;
+	private final VetService vetService; 
+	
+	private final SpecialtyService specialtyService;
 
 	@Autowired
-	public VetController(VetService clinicService) {
+	public VetController(VetService clinicService, SpecialtyService specialtyService) {
 		this.vetService = clinicService;
+		this.specialtyService = specialtyService;
+	}
+	
+	@ModelAttribute("specialties")
+	public Collection<Specialty> populatePetTypes() {
+		return this.specialtyService.findSpecialties();
 	}
 	
 
@@ -82,15 +90,14 @@ public class VetController {
 	
 	@GetMapping("/vets/new")
 	public String editNewVet(ModelMap model) {
-		Collection<Specialty> specialties = SpecialtyService.findSpecialties();
+		
 		model.addAttribute("vet",new Vet());
-		model.addAttribute("specialties",specialties);
 		return "vets/createOrUpdateVetForm";
 	}
 	
 	@PostMapping("/vets/new")
 	public String saveNewVet(@Valid Vet vet, @RequestParam(value="specialties", required= false) Collection<Specialty> specialties, BindingResult binding,ModelMap model) {
-		try{
+		
 		if(binding.hasErrors()) {		
 			return "vets/createOrUpdateVetForm";
 		}else {
@@ -102,12 +109,13 @@ public class VetController {
 				}
             	this.vetService.save(vet);
             }
-			return "redirect:/" + "vets";
+		
 			
-		}catch(IllegalArgumentException ex){
+	
+			System.out.println("Excepción lanzada------------------------------------------------------------------------------");
 			this.vetService.save(vet);
-            return  "vets/createOrUpdateVetForm";
-        }
+			return "redirect:/" + "vets";
+       
 	}
 	
 	@GetMapping("vets/{id}/edit")
@@ -125,13 +133,12 @@ public class VetController {
 		model.addAttribute("specialties",specialties);
 		model.addAttribute("specialtiesNoSeleccionadas",especialidadesRestantes);
 		return "vets/createOrUpdateVetForm";
-	}
+	} 
 
 	@PostMapping("vets/{id}/edit")
 	public String editLogro(@PathVariable("id") int id, @RequestParam(value="specialties", required= false)Collection<Specialty> specialties, @Valid Vet modifiedVet, BindingResult binding,
 			ModelMap model) {
 		Vet vet = vetService.findById(id);
-		try{
 		if (binding.hasErrors()) {
 			return "vets/createOrUpdateVetForm";
 		} 
@@ -145,13 +152,8 @@ public class VetController {
 		model.addAttribute("message", "vet updated succesfully!");
 		return "redirect:/" +"vets";
 		}
-		catch(IllegalArgumentException ex){
-			BeanUtils.copyProperties(modifiedVet, vet, "id");
-			vetService.save(vet);
-			model.addAttribute("message", "vet updated succesfully!");
-			return "redirect:/" +"vets";
-			}
-		}
+
+		
 	
 	
 	@GetMapping(value = { "/vets/{vetId}/delete" })
