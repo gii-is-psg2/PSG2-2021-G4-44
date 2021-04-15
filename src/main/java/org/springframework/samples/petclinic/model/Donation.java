@@ -7,6 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "donations")
@@ -15,11 +16,10 @@ public class Donation extends BaseEntity{
 	@NotBlank
 	private Double amount; //la cantidad que se dona
 	
-	private Date donationDate;
+	private Date donationDate; //la idea es, cuando se creen, que se hagan con la fecha LocalDate.now()
 	
-	@ManyToOne
-	@JoinColumn(name = "owner_id")
-	private Owner client; //el cliente que hace la donación
+	@NotEmpty
+	private String client; //nombre del cliente que hace la donación, más asequible hacerlo con String que con User
 	
 	
 	@ManyToOne
@@ -42,11 +42,11 @@ public class Donation extends BaseEntity{
 		this.donationDate = donationDate;
 	}
 
-	public Owner getClient() {
+	public String getClient() {
 		return client;
 	}
 
-	public void setClient(Owner client) {
+	public void setClient(String client) {
 		this.client = client;
 	}
 
