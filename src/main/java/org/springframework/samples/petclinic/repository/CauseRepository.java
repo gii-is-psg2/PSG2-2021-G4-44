@@ -40,7 +40,7 @@ import org.springframework.samples.petclinic.model.PetType;
  * @since 15.1.2013
  */
 
-	public interface CauseRepository extends CrudRepository<Cause, Integer>{
+	public interface CauseRepository  extends CrudRepository<Cause, Integer> {
 
 	   
 		void save(Cause cause) throws DataAccessException;
