@@ -39,6 +39,6 @@ In the retrospective meeting, the team has a discussion about those results.
 | 10-4-2021        |        😖       |              |                |                |                |                |
 | 11-4-2021         |     😎    |               |                |                |                |                |
 | 12-4-2021         |      :smiley:    |               |                |                |                |                |
-| 13-4-2021         |         |               |                |                |                |                |
-| 14-4-2021         |         |               |                |                |                |                |
+| 13-4-2021         |    😎     |               |                |                |                |                |
+| 14-4-2021         |    :smiley:     |               |                |                |                |                |
 ...
