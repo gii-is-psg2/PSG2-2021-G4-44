@@ -35,10 +35,10 @@ In the retrospective meeting, the team has a discussion about those results.
 | Day           | Isabel    | David  | María     | Víctor     | Eugenio    | Jesús     |
 | ------------- | ------------- | -------------  | -------------  | -------------  | -------------  | -------------  |
 | 8-4-2021        |   :smiley:     |      :smiley:          |      😎          |        :smiley:        |     :smiley:           |   :smiley:             |
-| 9-4-2021        |    :smiley:          |     😎      |  :smiley:  |                |                |                |
+| 9-4-2021        |    :smiley:          |     😃      |  :smiley:  |                |                |                |
 | 10-4-2021        |        😖       |     😎         |  :smiley:              |                |                |                |
 | 11-4-2021         |     😎    |      😎         |        😖        |                |                |                |
-| 12-4-2021         |      :smiley:    |      😎         |      :smiley:            |                |                |                |
+| 12-4-2021         |      :smiley:    |      😃         |      :smiley:            |                |                |                |
 | 13-4-2021         |    😎     |      😎         |         😎       |                |                |                |
 | 14-4-2021         |    :smiley:     |     😎          |      😎          |                |                |                |
 ...
