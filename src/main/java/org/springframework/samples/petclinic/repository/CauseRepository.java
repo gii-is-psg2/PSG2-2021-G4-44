@@ -43,7 +43,7 @@ import org.springframework.samples.petclinic.model.PetType;
 	public interface CauseRepository  extends CrudRepository<Cause, Integer> {
 
 	   
-		void save(Cause cause) throws DataAccessException;
+	
 	    
 	    @Query("SELECT cause FROM Cause cause where cause.id=:causeId")
 		Cause findByCauseId(@Param(value = "causeId") int causeId);
