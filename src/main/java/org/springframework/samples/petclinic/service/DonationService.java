@@ -29,4 +29,8 @@ public class DonationService {
 		return donationRepository.findAll();
 	}	
 	
+	@Transactional
+	public static void saveDonation(Donation d) throws DataAccessException {
+		donationRepository.save(d);
+	}	
 }
