@@ -21,9 +21,6 @@ public interface DonationRepository extends CrudRepository<Donation, Integer>{
 	
 	@Query("SELECT donation FROM Donation donation WHERE donation.cause =:causeid")//dada la id de una cause, te devuelve todas sus donaciones
 	public Collection<Donation> findByCauseId(@Param("causeid") int causeId);
-	
-	void save(Donation donation) throws DataAccessException;
 
-	
 
 }

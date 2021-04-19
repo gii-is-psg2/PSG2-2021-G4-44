@@ -17,13 +17,17 @@
 package org.springframework.samples.petclinic.service;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.samples.petclinic.model.Cause;
+import org.springframework.samples.petclinic.model.Donation;
 import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.User;
 import org.springframework.samples.petclinic.model.Visit;
+import org.springframework.samples.petclinic.repository.CauseRepository;
 import org.springframework.samples.petclinic.repository.OwnerRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,61 +39,36 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Michael Isvy
  */
 @Service
-public class OwnerService {
-
-	private OwnerRepository ownerRepository;
+public class CauseService {
 	
-	@Autowired
-	private PetService petService;
-	
-	@Autowired
-	private UserService userService;
-	
-	@Autowired
-	private AuthoritiesService authoritiesService;
+	private static CauseRepository causeRepository;
 
-	@Autowired
-	public OwnerService(OwnerRepository ownerRepository) {
-		this.ownerRepository = ownerRepository;
-	}	
-
-	@Transactional(readOnly = true)
-	public Owner findOwnerById(int id) throws DataAccessException {
-		return ownerRepository.findById(id);
-	}
-
-	@Transactional(readOnly = true)
-	public Owner findOwnerByUser(User user) throws DataAccessException {
-		return ownerRepository.findOwnerByUser(user);
-	}
-
-	@Transactional(readOnly = true)
-	public Collection<Owner> findOwnerByLastName(String lastName) throws DataAccessException {
-		return ownerRepository.findByLastName(lastName);
-	}
 
 	@Transactional
-	public void saveOwner(Owner owner) throws DataAccessException {
-		//creating owner
-		ownerRepository.save(owner);		
-		//creating user
-		userService.saveUser(owner.getUser());
-		//creating authorities
-		authoritiesService.saveAuthorities(owner.getUser().getUsername(), "owner");
-	}		
+	public void saveCause(Cause cause) {
+		causeRepository.save(cause);
+	}
 	
-	@Transactional
-	public void removeOwner(Integer id) throws DataAccessException {
-		if (ownerRepository.findById(id).getPets().size()>=1) {
-			for (Pet pet:ownerRepository.findById(id).getPets()) {
-				petService.removePet(pet.getId());
-			}
-		}
-        
-		ownerRepository.remove(id);
+	@Transactional(readOnly = true)
+	public Cause findCauseById(int causeId) throws DataAccessException{
+		return causeRepository.findByCauseId(causeId);
+	}
+	
+
+	@Transactional(readOnly = true)	
+	public Collection<Cause> findCauses()  {
+		return causeRepository.findAll();
+	}
+	
+	public Double totalBudget(int causeId)  {
+		return causeRepository.totalBudget(causeId);
 	}
 
-	public Collection<Owner> findAll(){
-		return ownerRepository.findAll();
+	
+	public Collection<Donation> findDonations(int causeId)  {
+		return causeRepository.findDonations(causeId);
 	}
+
+
+	
 }
