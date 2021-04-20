@@ -28,7 +28,10 @@ import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.User;
 import org.springframework.samples.petclinic.model.Visit;
 import org.springframework.samples.petclinic.repository.CauseRepository;
+import org.springframework.samples.petclinic.repository.CheckInRepository;
 import org.springframework.samples.petclinic.repository.OwnerRepository;
+import org.springframework.samples.petclinic.repository.PetRepository;
+import org.springframework.samples.petclinic.repository.VisitRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,11 +44,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class CauseService {
 	
-	private static CauseRepository causeRepository;
+	private CauseRepository causeRepository;
 
+	@Autowired
+	public CauseService(CauseRepository causeRepository) {
+		this.causeRepository = causeRepository;
+	}
 
 	@Transactional
-	public void saveCause(Cause cause) {
+	public void saveCause(Cause cause) throws DataAccessException {
 		causeRepository.save(cause);
 	}
 	
@@ -56,16 +63,16 @@ public class CauseService {
 	
 
 	@Transactional(readOnly = true)	
-	public Collection<Cause> findCauses()  {
+	public Collection<Cause> findCauses() throws DataAccessException {
 		return causeRepository.findAll();
 	}
 	
-	public Double totalBudget(int causeId)  {
+	public Double totalBudget(int causeId) throws DataAccessException {
 		return causeRepository.totalBudget(causeId);
 	}
 
 	
-	public Collection<Donation> findDonations(int causeId)  {
+	public Collection<Donation> findDonations(int causeId) throws DataAccessException {
 		return causeRepository.findDonations(causeId);
 	}
 

@@ -40,22 +40,18 @@ import org.springframework.samples.petclinic.model.PetType;
  * @since 15.1.2013
  */
 
-	public interface CauseRepository  extends CrudRepository<Cause, Integer> {
-
-	   
-	
+	public interface CauseRepository  extends CrudRepository<Cause, Integer> {	
 	    
 	    @Query("SELECT cause FROM Cause cause where cause.id=:causeId")
-		Cause findByCauseId(@Param(value = "causeId") int causeId);
+		public Cause findByCauseId(@Param(value = "causeId") int causeId) throws DataAccessException;
 		
 		@Query("SELECT sum(donation.amount) FROM Donation donation where donation.cause.id=:causeId")
-	    Double totalBudget(@Param(value = "causeId") int causeId);
+	    public Double totalBudget(@Param(value = "causeId") int causeId) throws DataAccessException;
 	    
 	    @Query("SELECT donation FROM Donation donation where donation.cause.id=:causeId")
-	    Collection<Donation> findDonations(@Param(value = "causeId") int causeId);
+	    public Collection<Donation> findDonations(@Param(value = "causeId") int causeId) throws DataAccessException;
 	    
-	    @Query("SELECT c FROM Cause c")
-	    Collection<Cause> findAll();
+	    Collection<Cause> findAll() throws DataAccessException;
 	    
 	}
 

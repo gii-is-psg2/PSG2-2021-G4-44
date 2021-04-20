@@ -37,7 +37,7 @@ public class Cause extends BaseEntity{
 	private String description;
 	
 	@NotNull
-	@Column(name = "budged_target")   //budget target (numeric)
+	@Column(name = "budget_target")   //budget target (numeric)
 	@Min(0)							  //como mínino será 0
 	private Double budgetTarget;
 	
@@ -109,5 +109,13 @@ public class Cause extends BaseEntity{
 	    donation.setCause(this);
 	}
 	
+	public Double getTotalAmount() {
+		Double res=0.0;
+		for (Donation donation:getDonations()) {
+			res+=donation.getAmount();
+		}
+		return res;
+		
+	}
 
 }
