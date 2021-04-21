@@ -1,13 +1,17 @@
 package org.springframework.samples.petclinic.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "donations")
@@ -16,7 +20,9 @@ public class Donation extends BaseEntity{
 	@NotBlank
 	private Double amount; //la cantidad que se dona
 	
-	private Date donationDate; //la idea es, cuando se creen, que se hagan con la fecha LocalDate.now()
+	@Column(name = "donation_date")
+	@DateTimeFormat(pattern = "yyyy/MM/dd")
+	private LocalDate donationDate; //la idea es, cuando se creen, que se hagan con la fecha LocalDate.now()
 	
 	@NotEmpty
 	private String client; //nombre del cliente que hace la donación, más asequible hacerlo con String que con User
@@ -34,11 +40,11 @@ public class Donation extends BaseEntity{
 		this.amount = amount;
 	}
 
-	public Date getDonationDate() {
+	public LocalDate getDonationDate() {
 		return donationDate;
 	}
 
-	public void setDonationDate(Date donationDate) {
+	public void setDonationDate(LocalDate donationDate) {
 		this.donationDate = donationDate;
 	}
 
