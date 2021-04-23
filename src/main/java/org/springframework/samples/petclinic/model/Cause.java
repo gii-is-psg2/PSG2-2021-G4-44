@@ -36,6 +36,9 @@ public class Cause extends BaseEntity{
 	@Column(name = "description")	  //Descripción  (string)
 	private String description;
 	
+	@Column(name="budget_achieved")
+	private Integer budgetAchieved;
+	
 	@NotNull
 	@Column(name = "budget_target")   //budget target (numeric)
 	@Min(0)							  //como mínino será 0
@@ -45,9 +48,20 @@ public class Cause extends BaseEntity{
 	@Column(name = "organization")	  //an active non profit organization (string) 
 	private String organization;
 	
-	@NotNull
-	@Column(name = "is_closed")
-	private Boolean isClosed;
+	public Boolean isClosed() {
+		if (this.getBudgetAchieved() >= this.getBudgetTarget()) {
+			return true;
+		}
+	return false;
+				
+	}
+	public Integer getBudgetAchieved() {
+		return budgetAchieved;
+	}
+
+	public void setBudgetAchieved(Integer budgetAchieved) {
+		this.budgetAchieved = budgetAchieved;
+	}
 
 	public String getName() {
 		return name;
@@ -81,13 +95,7 @@ public class Cause extends BaseEntity{
 		this.organization = organization;
 	}
 
-	public Boolean getIsClosed() {
-		return isClosed;
-	}
-
-	public void setIsClosed(Boolean isClosed) {
-		this.isClosed = isClosed;
-	}
+	
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "cause")
 	private Set<Donation> donations;
 	

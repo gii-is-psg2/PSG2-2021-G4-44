@@ -11,7 +11,7 @@
     <table id="causesTable" class="table table-striped ownersHead" >
         <thead>
         <tr>
-            <th>Nombre</th>
+             <th>Nombre</th>
             <th>Recaudado</th>
             <th>Objetivo</th>
             <th></th>
@@ -25,17 +25,18 @@
                    <c:out value="${cause.name}"/>
                 </td>
                 <td>
-                    <c:out value="${cause.totalAmount}"/> <!-- crear en clase causa -->
+                    <c:out value="${cause.budgetAchieved}"/> <!-- crear en clase causa -->
                 </td>
                 <td>
                     <c:out value="${cause.budgetTarget}"/>
                 </td>
+             
                 <td>
-                    <spring:url value="causes/{causeId}/donation/new" var="addDonationUrl">
+                   <spring:url value="/causes/{causeId}/donations/new" var="createDonationUrl">
        					<spring:param name="causeId" value="${cause.id}"/>
-    				</spring:url>
-    				<a href="${fn:escapeXml(addDonationUrl)}" class="btn btn-default">Añadir Nueva Donacion</a>
-                </td>
+   					</spring:url>
+   					<a href="${fn:escapeXml(createDonationUrl)}" class="btn btn-default">Realizar donacion</a>  
+   				</td>
                 <td>
                     <spring:url value="/causes/{causeId}" var="causeUrl">
                         <spring:param name="causeId" value="${cause.id}"/>

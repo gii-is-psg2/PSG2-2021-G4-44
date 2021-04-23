@@ -84,6 +84,7 @@ INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (11, 'Freddy', '201
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (12, 'Lucky', '2010-06-24', 2, 10);
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (13, 'Sly', '2012-06-08', 1, 10);
 
+
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (1, 7, '2013-01-01', 'rabies shot');
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (2, 8, '2013-01-02', 'rabies shot');
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (3, 8, '2013-01-03', 'neutered');
@@ -92,11 +93,10 @@ INSERT INTO visits(id,pet_id,visit_date,description) VALUES (4, 7, '2013-01-04',
 INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (1, '2021-04-10', '2021-04-27', 7);
 INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (2, '2021-05-10', '2021-05-27', 6);
 
-INSERT INTO causes(id,name,description,budget_target,organization,is_closed) VALUES (1,'Ayuda','Necesito ayuda con mi perro enfermo',400.00,'Organization',FALSE);
-INSERT INTO causes(id,name,description,budget_target,organization,is_closed) VALUES (2,'Necesito ayuda','Mi gato se esta muriendo',800.00,'Organization 2',FALSE);
-INSERT INTO causes(id,name,description,budget_target,organization,is_closed) VALUES (3,'Mi gato','Mi gano necesita un protesis',500.00,'Organization 2',FALSE);
 
-INSERT INTO donations(id,amount,donation_date,client,cause_id) VALUES (1,20.00,'2021-01-10', 'George', 1);
-INSERT INTO donations(id,amount,donation_date,client,cause_id) VALUES (2,2.00,'2021-01-10', 'Carlos', 1);
-INSERT INTO donations(id,amount,donation_date,client,cause_id) VALUES (3,4.00,'2021-01-10', 'Betty', 1);
-INSERT INTO donations(id,amount,donation_date,client,cause_id) VALUES (4,40.00,'2021-01-10', 'Jeff', 2);
+INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (1, 'Vacunas en Zimbawe', 'Se necesita dinero para administrar vacunas en Zimbawe', 0, 100000,'Cruz roja');
+INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (2, 'Vacunas en Kenia', 'Se necesita dinero para administrar vacunas en Kenia', 2000, 100000,'Aministia internacional');
+INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (3, 'Vacunas en Ghana', 'Se necesita dinero para administrar vacunas en Ghana', 4500, 100000,'Cruz roja');
+INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (4, 'Vacunas en Tanzania', 'Se necesita dinero para administrar vacunas en Tanzania', 200000, 100000,'Caritas');
+INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (5, 'Vacunas en Nigeria', 'Se necesita dinero para administrar vacunas en Nigeria', 0, 50,'Cruz roja');
+INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (6, 'Vacunas en Senegal', 'Se necesita dinero para administrar vacunas en Senegal', 0, 100000,'Amnisita internacional');

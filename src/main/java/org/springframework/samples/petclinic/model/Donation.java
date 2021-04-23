@@ -3,50 +3,56 @@ package org.springframework.samples.petclinic.model;
 import java.time.LocalDate;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.sun.istack.NotNull;
+
 @Entity
 @Table(name = "donations")
 public class Donation extends BaseEntity{
 	
-	@NotBlank
-	private Double amount; //la cantidad que se dona
+	@NotNull
+	@Min(0)
+	private Integer amount; //la cantidad que se dona
 	
 	@Column(name = "donation_date")
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private LocalDate donationDate; //la idea es, cuando se creen, que se hagan con la fecha LocalDate.now()
+	private LocalDate date; //la idea es, cuando se creen, que se hagan con la fecha LocalDate.now()
 	
 	@NotEmpty
 	private String client; //nombre del cliente que hace la donación, más asequible hacerlo con String que con User
 	
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.REMOVE)
 	@JoinColumn(name= "cause_id") ///Cause a la que pertenece la 
 	private Cause cause;
 	
-	public Double getAmount() {
+	public Integer getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Double amount) {
+	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
 
-	public LocalDate getDonationDate() {
-		return donationDate;
+	public LocalDate getDate() {
+		return date;
 	}
 
-	public void setDonationDate(LocalDate donationDate) {
-		this.donationDate = donationDate;
+	public void setDate(LocalDate date) {
+		this.date = date;
 	}
+	
 
 	public String getClient() {
 		return client;
