@@ -37,6 +37,8 @@ public class CauseController {
 		return "causes/causesList";
 	}
 	
+    
+    
 	@GetMapping(value = { "/causes/{causeId}" })
 	public String showCauseDetails(@PathVariable("causeId") int id, ModelMap model) {
 		
