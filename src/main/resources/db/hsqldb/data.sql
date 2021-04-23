@@ -94,9 +94,7 @@ INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (1, '2021-04-
 INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (2, '2021-05-10', '2021-05-27', 6);
 
 
-INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (1, 'Vacunas en Zimbawe', 'Se necesita dinero para administrar vacunas en Zimbawe', 0, 100000,'Cruz roja');
-INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (2, 'Vacunas en Kenia', 'Se necesita dinero para administrar vacunas en Kenia', 2000, 100000,'Aministia internacional');
-INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (3, 'Vacunas en Ghana', 'Se necesita dinero para administrar vacunas en Ghana', 4500, 100000,'Cruz roja');
-INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (4, 'Vacunas en Tanzania', 'Se necesita dinero para administrar vacunas en Tanzania', 200000, 100000,'Caritas');
-INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (5, 'Vacunas en Nigeria', 'Se necesita dinero para administrar vacunas en Nigeria', 0, 50,'Cruz roja');
-INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (6, 'Vacunas en Senegal', 'Se necesita dinero para administrar vacunas en Senegal', 0, 100000,'Amnisita internacional');
+INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (1, 'Sara PROTECTORA', 'Se necesita dinero para administrar material a perreras', 0, 100000,'PROTECTORA');
+INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (2, 'Abrazo Animal', 'Se necesita dinero para administrar material a perreras', 1000, 100000,'PROTECTORA');
+INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (3, 'Hogar Refugio La Candela', 'Se necesita dinero para administrar material a perreras', 6700, 100000,'PROTECTORA');
+INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (4, ' Animalados', 'Se necesita dinero para administrar material a perreras', 1000, 100000,'PROTECTORA');
