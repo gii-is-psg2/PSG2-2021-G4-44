@@ -41,14 +41,14 @@ In the retrospective meeting, the team has a discussion about those results.
 | 12-4-2021         |      :smiley:    |      😃         |      :smiley:            |        😃       |    :smiley:            |        :smiley:        |
 | 13-4-2021         |    😎     |      😎         |         😎       |         😎        |        😎        |       😎         |
 | 14-4-2021         |    :smiley:     |     😎          |      😎          |        😎         |        😎        |        😎        |
-| 15-4-2021         |    :smiley:     |        😎       |           :smiley:      |      😎           |       😎         |                |
-| 16-4-2021         |   :neutral_face:   |      😃         |      :neutral_face:           |       😎          |       :smiley:         |                |
-| 17-4-2021         |      😖                |      😃         |        :smiley:                             |       😎          |        😎        |                |
-| 18-4-2021         |    :smiley:                 |      😎         |        😎                             |         😎        |      :smiley:          |                |
-| 19-4-2021         |       :smiley:              |       😃        |      :smiley:      |       😎          |        :smiley:        |                |
-| 20-4-2021         |          😎            |      😃         |      :smiley:          |                 |         😎       |                |
-| 21-4-2021         |              :smiley:             |        😎       |      :smiley:          |                 |      :smiley:          |                |
-| 22-4-2021         |      😎              |               |  😃                               |                 |         😎       |                |
+| 15-4-2021         |    :smiley:     |        😎       |           :smiley:      |      😎           |       😎         |         😎       |
+| 16-4-2021         |   :neutral_face:   |      😃         |      :neutral_face:           |       😎          |       :smiley:         |        :neutral_face:        |
+| 17-4-2021         |      😖                |      😃         |        :smiley:                             |       😎          |        😎        |        😖        |
+| 18-4-2021         |    :smiley:                 |      😎         |        😎                             |         😎        |      :smiley:          |      :smiley:      |
+| 19-4-2021         |       :smiley:              |       😃        |      :smiley:      |       😎          |        :smiley:        |        :smiley:         |
+| 20-4-2021         |          😎            |      😃         |      :smiley:          |                 |         😎       |        😖        |
+| 21-4-2021         |              :smiley:             |        😎       |      :smiley:          |                 |      :smiley:          |        😎        |
+| 22-4-2021         |      😎              |               |  😃                               |                 |         😎       |        😭        |
 | 23-4-2021         |                   |               |                                 |                 |               |                |
 | 24-4-2021         |                   |               |                                 |                 |                |                |
 | 25-4-2021         |                   |               |                                 |                 |                |                |
