@@ -18,8 +18,6 @@ package org.springframework.samples.petclinic.web;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -30,12 +28,16 @@ import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.User;
 import org.springframework.samples.petclinic.service.CheckInService;
 import org.springframework.samples.petclinic.service.OwnerService;
+import org.springframework.samples.petclinic.service.PetService;
 import org.springframework.samples.petclinic.service.UserService;
+import org.springframework.samples.petclinic.service.exceptions.TwoPetsCheckInsException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -49,51 +51,59 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class CheckInController {
 
 	private static final String VIEWS_CHECKIN_CREATE_OR_UPDATE_FORM = "checkIn/checkIns";
-	
+
 	@Autowired
 	OwnerService ownerService;
-	
+
 	@Autowired
 	UserService userService;
 
 	@Autowired
 	CheckInService checkInService;
 
+	@Autowired
+	PetService petService;
+
+	@InitBinder("checkIn")
+	public void initPetBinder(WebDataBinder dataBinder) {
+		dataBinder.setValidator(new CheckInValidator());
+	}
+
 	@GetMapping(value = "/checkIn/new")
 	public String initCreationForm(ModelMap model) {
 		Collection<CheckIn> lsCIs = checkInService.findCheckIns();
 		model.addAttribute("lsCIs", lsCIs);
-		
+
 		User usuario = userService.findUser(SecurityContextHolder.getContext().getAuthentication().getName()).get();
-		
+
 		Owner owner = ownerService.findOwnerByUser(usuario);
 		List<Pet> lsMascota = owner.getPets();
 		model.addAttribute("lsMascota", lsMascota);
-		
+
 		CheckIn checkin = new CheckIn();
 		model.addAttribute("checkIn", checkin);
-		
+
 		return VIEWS_CHECKIN_CREATE_OR_UPDATE_FORM;
 	}
-	
+
 	@PostMapping(value = "/checkIn/new")
-	public String processCreationForm(@Valid CheckIn checkin,BindingResult result, ModelMap model) throws IOException {
-		if(result.hasErrors()) {
-			model.clear();
+	public String processCreationForm(@Valid CheckIn checkin, BindingResult result, ModelMap model) throws IOException, TwoPetsCheckInsException {
+		if (result.hasErrors()) {
 			model.addAttribute("checkIn", checkin);
-			
 			return VIEWS_CHECKIN_CREATE_OR_UPDATE_FORM;
-		}else {
-			//System.out.println(check.getId() + " " + check.getPet() + " " + check.getFechaEntrada() + " " + check.getFechaSalida());
-			model.put("checkIn", checkin);
-			checkInService.saveCheckIn(checkin);
+		} else {
+				Pet pet = petService.findPetById(checkin.getPet().getId());
+				checkin.setPet(pet);
+				this.checkInService.saveCheckIn(checkin);
+
 			return "/welcome";
 		}
+
 	}
-	
+
 	@GetMapping(value = { "/checkIn/{checkInId}/delete" })
-    public String deleteCheckIn(@PathVariable("checkInId") int checkInId) {
-    	checkInService.removeCheckIn(checkInId);
-    	return "redirect:/checkIn/new";
-    }
+	public String deleteCheckIn(@PathVariable("checkInId") int checkInId) {
+		checkInService.removeCheckIn(checkInId);
+		return "redirect:/checkIn/new";
+	}
 }
