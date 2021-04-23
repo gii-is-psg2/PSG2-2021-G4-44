@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/causes")
+
 public class CauseController {
 	
 	private final CauseService causeService;
@@ -63,7 +63,7 @@ public class CauseController {
 		return "causes/causesList";
 	}
 	
-	@GetMapping(value = "/{id}/donations/new")
+	@GetMapping(value = "/causes/{id}/donations/new")
     public String initCreationForm(@PathVariable("id") int id,ModelMap model) {
     	Cause causa = causeService.findById(id).get();
     	if (causa.isClosed()){
@@ -75,7 +75,7 @@ public class CauseController {
         return "/donations/createDonationForm";
     }
 
-    @PostMapping(value = "/{id}/donations/new")
+    @PostMapping(value = "/causes/{id}/donations/new")
     public String processCreationForm(@PathVariable("id") int id,@Valid Donation donation, BindingResult result,ModelMap model) {
         if (result.hasErrors()) {
             return "/donations/createDonationForm";
@@ -93,6 +93,14 @@ public class CauseController {
         donationService.saveDonation(donation);
         return "redirect:/causes/"; 
     }
+    
+    @GetMapping("/causes/{id}/donations")
+   	public String showDonation(@PathVariable("id") int id, ModelMap model) {
+   		List<Donation> donations = donationService.findDonationsByCause(id);
+   		model.addAttribute("donations",donations);
+   		return "/donations/showDonations";
+   	}
+       
 
     
 

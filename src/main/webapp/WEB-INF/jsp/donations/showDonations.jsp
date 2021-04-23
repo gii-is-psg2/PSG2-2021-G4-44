@@ -5,27 +5,37 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
-
 <petclinic:layout pageName="donations">
 
-    <jsp:body>
-	    <h2>
-	        Hacer una Donacion
-	    </h2>
-	    <form:form modelAttribute="donation" class="form-horizontal" id="add-donation-form">
-	        <div class="form-group has-feedback">
-	            <petclinic:inputField label="Cantidad" name="amount"/>
-	        </div>
-	        <div class="form-group">
-	            <div class="col-sm-offset-2 col-sm-10">
-	               	<button class="btn btn-default" type="submit"> Donar </button>
-	            </div>
-	        </div>
-	    </form:form>
-	    <div class="col-lg-8">
+<jsp:body>
+<h2>Lista de donaciones</h2>
+		<table id="causeTable" class="table table-striped">
+			<thead>
+			<tr>
+				<th>Cliente</th>
+				<th>Fecha</th>
+				<th>Cantidad</th>
+			</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${donations}" var="donation">
+					<tr>
+						<td>
+							<c:out value="${donation.client}"/>
+						</td>
+						<td>
+							<c:out value="${donation.date}"/>
+						</td>
+						<td>
+							<c:out value="${donation.amount}"/>
+						</td>
+				</c:forEach>
+			</tbody>
+		</table>
+		<div class="col-lg-8">
 		<spring:url value="/causes" var="back">
                 	</spring:url>
     	<a href="${fn:escapeXml(back)}" class="btn btn-default">Volver</a>
 	</div>
-    </jsp:body>
+</jsp:body>
 </petclinic:layout>

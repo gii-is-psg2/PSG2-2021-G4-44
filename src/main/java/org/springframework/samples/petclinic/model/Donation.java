@@ -23,20 +23,18 @@ public class Donation extends BaseEntity{
 	
 	@NotNull
 	@Min(0)
-	private Integer amount; //la cantidad que se dona
+	private Integer amount;
 	
-	@Column(name = "donation_date")
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private LocalDate date; //la idea es, cuando se creen, que se hagan con la fecha LocalDate.now()
+    @Column(name = "date_of_donation")
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    private LocalDate date;
 	
-	@NotEmpty
-	private String client; //nombre del cliente que hace la donación, más asequible hacerlo con String que con User
-	
-	
-	@ManyToOne(cascade = CascadeType.REMOVE)
-	@JoinColumn(name= "cause_id") ///Cause a la que pertenece la 
-	private Cause cause;
-	
+    private String client;
+    
+    @ManyToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "cause_id")
+    private Cause cause;
+    
 	public Integer getAmount() {
 		return amount;
 	}
@@ -53,7 +51,6 @@ public class Donation extends BaseEntity{
 		this.date = date;
 	}
 	
-
 	public String getClient() {
 		return client;
 	}
@@ -61,9 +58,9 @@ public class Donation extends BaseEntity{
 	public void setClient(String client) {
 		this.client = client;
 	}
-
-	public Cause getCause() {
-        return this.cause;
+    
+    public Cause getCause() {
+        return cause;
     }
 
     public void setCause(Cause cause) {
@@ -71,3 +68,6 @@ public class Donation extends BaseEntity{
     }
 
 }
+
+
+
