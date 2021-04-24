@@ -1,4 +1,5 @@
 
+
 package org.springframework.samples.petclinic.web;
 
 import java.time.LocalDate;
@@ -92,9 +93,19 @@ public class CauseController {
    		model.addAttribute("donations",donations);
    		return "/donations/showDonations";
    	}
-       
-
     
+    
+	@GetMapping(value = { "/causes/{causeId}" })
+	public String showCauseDetails(@PathVariable("causeId") int id, ModelMap model) {
+		
+		Cause cause = this.causeService.findCauseById(id);
+		Collection<Donation> causeDonations = this.causeService.findDonations(id);
+		model.put("donations", causeDonations);
+		model.put("cause", cause);
+		
+		return "causes/causeDetails";
+	}
 
 
 }
+
