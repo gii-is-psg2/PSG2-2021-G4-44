@@ -1,36 +1,56 @@
 package org.springframework.samples.petclinic.service;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
-import org.springframework.dao.DataAccessException;
+import javax.transaction.Transactional;
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.samples.petclinic.model.Cause;
 import org.springframework.samples.petclinic.model.Donation;
+import org.springframework.samples.petclinic.repository.CauseRepository;
 import org.springframework.samples.petclinic.repository.DonationRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class DonationService {
 	
-	private static DonationRepository donationRepository;
-
+	@Autowired
+	private DonationRepository donationRepository;
 	
-	@Transactional(readOnly = true)
-	public Optional<Donation> findDonationById(int id) throws DataAccessException {
-		return donationRepository.findById(id);
-	}
+	@Autowired
+	private CauseRepository causeRepository;
 	
-	public Collection<Donation> findByCauseId(int causeId) throws DataAccessException {
-		return donationRepository.findByCauseId(causeId);
-	}
-	
-	@Transactional(readOnly = true)	
-	public static Collection<Donation> findSpecialties() throws DataAccessException {
-		return donationRepository.findAll();
-	}	
 	
 	@Transactional
-	public static void saveDonation(Donation d) throws DataAccessException {
-		donationRepository.save(d);
+	public Collection<Donation> findAll() {
+		return donationRepository.findAll();
+	}
+	
+	public Optional<Donation> findByDonationId(int donationId)  {
+		return donationRepository.findById(donationId);
 	}	
+	
+	public void saveDonation(@Valid Donation donation)  {
+		donationRepository.save(donation);
+	}
+
+	public List<Donation> findDonationsByCause(int causeId) {
+		List<Donation> donations = new ArrayList<>();
+			Collection<Donation> causeDonations = donationRepository.findByCauseId(causeId);
+			donations.addAll(causeDonations);
+		return donations;
+	}
+	
+	public Collection<Donation> findDonationsByCauseId(Integer id) {
+		return donationRepository.findByCauseId(id);
+	}
+	
+	public void delete(Donation donation) {
+		donationRepository.delete(donation);
+	}
+	
 }

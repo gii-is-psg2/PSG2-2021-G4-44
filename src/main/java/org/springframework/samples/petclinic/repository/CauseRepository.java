@@ -18,6 +18,7 @@ package org.springframework.samples.petclinic.repository;
 import java.util.Collection;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.jpa.repository.Modifying;
@@ -52,6 +53,11 @@ import org.springframework.samples.petclinic.model.PetType;
 	    public Collection<Donation> findDonations(@Param(value = "causeId") int causeId) throws DataAccessException;
 	    
 	    Collection<Cause> findAll() throws DataAccessException;
+		
+		
+		Optional<Cause> findById(int id) throws DataAccessException;
+		
+		
 	    
 	}
 

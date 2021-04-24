@@ -75,7 +75,14 @@ public class CauseService {
 	public Collection<Donation> findDonations(int causeId) throws DataAccessException {
 		return causeRepository.findDonations(causeId);
 	}
+	
+	
+	@Transactional(readOnly = true)
+	public Optional<Cause> findById(int id) {
+		return causeRepository.findById(id);
+	}
 
+	
 
 	
 }
