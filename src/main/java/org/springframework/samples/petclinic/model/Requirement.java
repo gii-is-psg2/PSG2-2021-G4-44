@@ -35,11 +35,11 @@ public class Requirement extends BaseEntity {
 	private String text;
 
 	@ManyToOne
-	@JoinColumn(name = "new_owner_id")
+	@JoinColumn(name = "new_owner")
 	private Owner new_owner;
 
 	@ManyToOne
-	@JoinColumn(name="id_adoption")
+	@JoinColumn(name="adoption")
 	private Adoption adoption;
 	
 	

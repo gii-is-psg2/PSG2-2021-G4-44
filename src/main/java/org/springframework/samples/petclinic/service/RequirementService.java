@@ -8,6 +8,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.samples.petclinic.model.Adoption;
 import org.springframework.samples.petclinic.model.Requirement;
 import org.springframework.samples.petclinic.repository.RequirementRepository;
 import org.springframework.stereotype.Service;
@@ -33,7 +34,12 @@ public class RequirementService {
 	@Transactional(readOnly = true)	
 	public Optional<Requirement> findRequirementById(int adoptionId) throws DataAccessException {
 		return requirementRepository.findById(adoptionId);
+	}
+	@Transactional(readOnly = true)	
+	public Collection<Requirement> findRequirementByAdoptionId(Adoption adoptionId) throws DataAccessException {
+		return requirementRepository.findRequirementByAdoption(adoptionId);
 	}	
+	
 	public void delete(Requirement requirement) {
 		requirementRepository.deleteById(requirement.getId());
 	}

@@ -20,12 +20,12 @@ public interface AdoptionRepository extends CrudRepository<Adoption, Integer> {
 	Collection<Adoption> findAll() throws DataAccessException;
 	
 	@Modifying
-	@Query("DELETE FROM adoptions a WHERE a.id = :id")
+	@Query("DELETE FROM Adoption a WHERE a.id = :id")
 	void remove(@Param("id") Integer id);
 	
 	
 
-	@Query("SELECT * FROM adoptions a WHERE a.adopted = false")
+	@Query("SELECT a FROM Adoption a WHERE a.adoptado = false")
 	Collection<Adoption> findAllFalse() throws DataAccessException;
 	
 }
