@@ -11,6 +11,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.model.Cause;
+import org.springframework.samples.petclinic.model.Donation;
 import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Vets;
 import org.springframework.samples.petclinic.service.CauseService;
@@ -19,6 +20,7 @@ import org.springframework.samples.petclinic.service.SpecialtyService;
 import org.springframework.samples.petclinic.service.VetService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -102,6 +104,7 @@ public class CauseController {
 		Collection<Donation> causeDonations = this.causeService.findDonations(id);
 		model.put("donations", causeDonations);
 		model.put("cause", cause);
+		
 		
 		return "causes/causeDetails";
 	}
