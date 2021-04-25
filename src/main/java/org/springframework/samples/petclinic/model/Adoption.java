@@ -21,10 +21,15 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -43,15 +48,16 @@ public class Adoption extends BaseEntity {
 	@Column(name = "adoptado")
 	private Boolean adoptado;
 
-	@ManyToOne
-	@JoinColumn(name = "pet_id")
+	@OneToOne
+	@JoinColumn(name = "pet")
 	private Pet pet;
 
-	@ManyToOne
-	@JoinColumn(name = "owner_id")
+	@OneToOne
+	@JoinColumn(name = "owner")
 	private Owner owner;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "requirement")
+	@OneToMany(mappedBy="adoption", cascade = CascadeType.REMOVE)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JsonIgnore
 	private List<Requirement> requirement;
 	
