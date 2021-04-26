@@ -49,6 +49,6 @@ In the retrospective meeting, the team has a discussion about those results.
 | 20-4-2021         |          😎            |      😃         |      :smiley:          |         :smiley:          |          :smiley:       |        😖        |
 | 21-4-2021         |              :smiley:             |        😎       |      :smiley:          |        :neutral_face:         |      :smiley:          |        😎        |
 | 22-4-2021         |      😎              |     😎          |  😃                               |        😎         |         😎       |        😭        |
-| 23-4-2021         |       :neutral_face:             |               |                                 |                 |               |                |
-| 24-4-2021         |       :neutral_face:             |               |                                 |                 |                |                |
-| 25-4-2021         |                   |               |                                 |                 |                |                |
+| 23-4-2021         |       :neutral_face:             |               |                                 |                 |      😎         |                |
+| 24-4-2021         |       :neutral_face:             |               |                                 |                 |        :neutral_face:        |                |
+| 25-4-2021         |                   |               |                                 |                 |          😎      |                |
