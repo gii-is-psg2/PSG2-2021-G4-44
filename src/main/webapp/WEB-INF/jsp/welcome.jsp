@@ -7,10 +7,10 @@
 
 <petclinic:layout pageName="home">
     <h2><fmt:message key="welcome"/></h2>
-    <sec:authorize access="hasAuthority('owner')">
+  <%--  <sec:authorize access="hasAuthority('owner')">
     <a class="btn btn-default" href='<spring:url value="/checkIn/new" htmlEscape="true"/>'>Check In</a>
     <a class="btn btn-default" href='<spring:url value="/adoptions" htmlEscape="true"/>'>Adopciones</a>
-    </sec:authorize>
+    </sec:authorize>--%> 
     <br><br>
     <div class="row">
         <div class="col-md-12">
