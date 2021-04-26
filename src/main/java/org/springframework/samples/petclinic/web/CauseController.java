@@ -80,7 +80,6 @@ public class CauseController {
         	model.addAttribute("message","La cantidad que desea donar es mayor que el objetivo de la donación");
     		return "/donations/createDonationForm";
         }
-        cause.setBudgetAchieved(cause.getBudgetAchieved()+donation.getAmount());
         causeService.saveCause(cause);
         donation.setClient(SecurityContextHolder.getContext().getAuthentication().getName());
         donation.setCause(cause);

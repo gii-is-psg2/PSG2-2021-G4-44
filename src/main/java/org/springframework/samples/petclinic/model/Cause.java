@@ -56,13 +56,6 @@ public class Cause extends BaseEntity{
 	return false;
 				
 	}
-	public Integer getBudgetAchieved() {
-		return budgetAchieved;
-	}
-
-	public void setBudgetAchieved(Integer budgetAchieved) {
-		this.budgetAchieved = budgetAchieved;
-	}
 
 	public String getName() {
 		return name;
@@ -118,6 +111,13 @@ public class Cause extends BaseEntity{
 	    donation.setCause(this);
 	}
 	
-	
+	public Double getBudgetAchieved() {
+		Double res=0.0;
+		for (Donation donation:getDonations()) {
+			res+=donation.getAmount();
+		}
+		return res;
+		
+	}
 
 }

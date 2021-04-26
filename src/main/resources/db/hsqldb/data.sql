@@ -94,16 +94,16 @@ INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (1, '2021-04-
 INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (2, '2021-05-10', '2021-05-27', 6);
 
 
-INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (1, 'Sara PROTECTORA', 'Se necesita dinero para administrar material a perreras', 0, 100000,'PROTECTORA');
-INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (2, 'Abrazo Animal', 'Se necesita dinero para administrar material a perreras', 1000, 100000,'PROTECTORA');
-INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (3, 'Hogar Refugio La Candela', 'Se necesita dinero para administrar material a perreras', 6700, 100000,'PROTECTORA');
-INSERT INTO causes(id,name,description,budget_achieved,budget_target,organization) VALUES (4, ' Animalados', 'Se necesita dinero para administrar material a perreras', 1000, 100000,'PROTECTORA');
+INSERT INTO causes(id,name,description,budget_target,organization) VALUES (1, 'Sara PROTECTORA', 'Se necesita dinero para administrar material a perreras', 100000,'PROTECTORA');
+INSERT INTO causes(id,name,description,budget_target,organization) VALUES (2, 'Abrazo Animal', 'Se necesita dinero para administrar material a perreras', 100000,'PROTECTORA');
+INSERT INTO causes(id,name,description,budget_target,organization) VALUES (3, 'Hogar Refugio La Candela', 'Se necesita dinero para administrar material a perreras',  100000,'PROTECTORA');
+INSERT INTO causes(id,name,description,budget_target,organization) VALUES (4, ' Animalados', 'Se necesita dinero para administrar material a perreras', 100000,'PROTECTORA');
 
-INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (1,'0','2021-04-20','Antonio Jose Medina',1);
-INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (2,'0','2021-04-23','Maria Gonzalez',1);
-INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (3,'0','2021-04-13','Ruben Castro',2);
-INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (4,'0','2021-04-23','Antonio Jose Medina',2);
-INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (5,'0','2021-04-21','Ruben Castro',3);
-INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (6,'0','2021-04-22','Antonio Jose Medina',3);
-INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (7,'0','2021-04-23','Ruben Castro',4);
-INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (8,'0','2021-04-30','Antonio Jose Medina',4);
+INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (1,1000,'2021-04-20','George',1);
+INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (2,200,'2021-04-23','Harold',1);
+INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (3,4000,'2021-04-13','Jeff',2);
+INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (4,200,'2021-04-23','George',2);
+INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (5,10000,'2021-04-21','Jeff',3);
+INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (6,1000,'2021-04-22','Harold',3);
+INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (7,2000,'2021-04-23','Harold',4);
+INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (8,1000,'2021-04-30','Jeff',4);

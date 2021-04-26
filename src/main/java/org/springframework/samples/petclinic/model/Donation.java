@@ -28,7 +28,7 @@ public class Donation extends BaseEntity{
     @Column(name = "date_of_donation")
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     private LocalDate donationDate;
-	
+    
     private String client;
     
     @ManyToOne(cascade = CascadeType.REMOVE)
