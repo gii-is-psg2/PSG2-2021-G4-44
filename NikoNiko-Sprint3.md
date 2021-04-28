@@ -53,3 +53,6 @@ In the retrospective meeting, the team has a discussion about those results.
 | 24-4-2021         |       :neutral_face:             |               |                                 |                 |        :neutral_face:        |                |
 | 25-4-2021         |       😎             |               |                                 |                 |          😎      |                |
 | 26-4-2021         |      😖              |               |                                 |                 |          😎      |                |
+| 27-4-2021         |       😎             |               |                                 |                 |                |                |
+| 28-4-2021         |      😖              |               |                                 |                 |               |                |
+
