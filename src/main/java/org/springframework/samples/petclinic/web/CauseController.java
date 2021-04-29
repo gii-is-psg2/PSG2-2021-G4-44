@@ -13,11 +13,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.model.Cause;
 import org.springframework.samples.petclinic.model.Donation;
 import org.springframework.samples.petclinic.model.Owner;
+import org.springframework.samples.petclinic.model.Pet;
+import org.springframework.samples.petclinic.model.Specialty;
+import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Vets;
 import org.springframework.samples.petclinic.service.CauseService;
 import org.springframework.samples.petclinic.service.DonationService;
 import org.springframework.samples.petclinic.service.SpecialtyService;
 import org.springframework.samples.petclinic.service.VetService;
+import org.springframework.samples.petclinic.service.exceptions.DuplicatedPetNameException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -27,6 +31,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -108,6 +113,22 @@ public class CauseController {
 		return "causes/causeDetails";
 	}
 
+	@GetMapping("/causes/new")
+	public String initCreationCauseForm(ModelMap model) {
+		model.addAttribute("cause",new Cause());
+		return "causes/createCauseForm";
+	}
+	
+	@PostMapping("/causes/new")
+	public String processCreationCauseForm(@Valid Cause cause, BindingResult binding,ModelMap model) {
+		
+		if(binding.hasErrors()) {		
+			return "causes/createCauseForm";
+		}
+		this.causeService.saveCause(cause);
+		return "redirect:/" + "causes";
+       
+	}
 
 }
 
