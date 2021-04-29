@@ -91,6 +91,8 @@ INSERT INTO visits(id,pet_id,visit_date,description) VALUES (4, 7, '2013-01-04',
 
 INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (1, '2021-04-10', '2021-04-27', 7);
 INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (2, '2021-05-10', '2021-05-27', 6);
+INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (3, '2021-03-10', '2021-03-27', 7);
+INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (4, '2021-04-10', '2021-04-27', 6);
 
 INSERT INTO adoptions(id,descripcion,adoptado,pet, owner) VALUES (1, 'No puedo cuidar de mi gato', FALSE, 1,1);
 INSERT INTO adoptions(id,descripcion,adoptado,pet, owner) VALUES (2, 'No puedo cuidar de mi hamster', FALSE, 2,2);
