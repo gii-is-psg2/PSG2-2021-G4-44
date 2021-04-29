@@ -52,7 +52,7 @@ In the retrospective meeting, the team has a discussion about those results.
 | 23-4-2021         |       :neutral_face:             |        😎       |        :neutral_face:                          |                 |      😎         |                |
 | 24-4-2021         |       :neutral_face:             |       😎        |         :smiley:                        |                 |        :neutral_face:        |                |
 | 25-4-2021         |       😎             |      😎         |              😎                     |                 |          😎      |                |
-| 26-4-2021         |      😖              |      😎         |            :smiley:                       |                 |          😎      |                |
-| 27-4-2021         |       😎             |      😎         |             😎                      |                 |                |                |
-| 28-4-2021         |      😖              |     😎          |            :smiley:                       |                 |               |                |
-
+| 26-4-2021         |      😖              |      😎         |            :smiley:                       |                 |        :smiley:          |                |
+| 27-4-2021         |       😎             |      😎         |             😎                      |                 |          😎      |                |
+| 28-4-2021         |      😖              |     😎          |            :smiley:                       |                 |        😎       |                |
+| 29-4-2021         |                    |               |                                   |                 |        :smiley:        |                |
