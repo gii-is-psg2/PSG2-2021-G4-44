@@ -3,16 +3,16 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>es.us.psg2</groupId>
-    <artifactId>spring-petclinic.psg2.2021-G4-44</artifactId>
-    <version>1.0.0</version>
+    <groupId>org.springframework.samples</groupId>
+    <artifactId>spring-petclinic</artifactId>
+    <version>2.2.0.BUILD-SNAPSHOT</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.4.RELEASE</version>
     </parent>
-    <name>PSG2-2021-G4-44 Petclinic</name>
+    <name>petclinic</name>
 
     <properties>
 
@@ -29,96 +29,8 @@
 
         <jacoco.version>0.8.5</jacoco.version>
         <spring-format.version>0.0.19</spring-format.version>
-        
-		<sonar.projectKey>gii-is-psg2_PSG2-2021-G4-44</sonar.projectKey>
- 		<sonar.organization>gii-is-psg2</sonar.organization>
-  		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
     </properties>
-    
-    <!-- Developers -->
-		<developers>
-			
-		<developer>
-			<id>iarrans</id>
-			<name>Isabel</name>
-			<email>isabelarrans@gmail.com</email>
-			<url>https://github.com/iarrans</url>
-			<roles>
-				<role>Scrum Master</role>
-				<role>Dev Team</role>
-			</roles>
-			<properties>
-				<picUrl></picUrl>
-			</properties>
-		</developer>
-			
-		<developer>
-			<id>davbrican</id>
-			<name>David</name>
-			<email>davbrican@alum.us.com</email>
-			<url>https://github.com/davbrican</url>
-			<roles>
-				<role>Dev Team</role>
-			</roles>
-			<properties>
-				<picUrl></picUrl>
-			</properties>
-			
-		</developer>
-				<developer>
-			<id>Mariia-2000</id>
-			<name>Maria</name>
-			<email>marcasbon@alum.us.com</email>
-			<url>https://github.com/Mariia-2000</url>
-			<roles>
-				<role>Dev Team</role>
-			</roles>
-			<properties>
-				<picUrl></picUrl>
-			</properties>
-		</developer>
-		
-		<developer>
-			<id>eugvicvaz</id>
-			<name>Eugenio</name>
-			<email>eugvicvaz@alum.us.com</email>
-			<url>https://github.com/eugvicvaz</url>
-			<roles>
-				<role>Dev Team</role>
-			</roles>
-			<properties>
-				<picUrl></picUrl>
-			</properties>
-		</developer>
-		
-		<developer>
-			<id>vicgragil</id>
-			<name>Victor</name>
-			<email>vicgragil@alum.us.com</email>
-			<url>https://github.com/vicgragil</url>
-			<roles>
-				<role>Dev Team</role>
-			</roles>
-			<properties>
-				<picUrl></picUrl>
-			</properties>
-			
-		</developer>
-		
-		<developer>
-			<id>jesvievaz</id>
-			<name>Jesus</name>
-			<email>vvjesus32@gmail.com</email>
-			<url>https://github.com/jesvievaz</url>
-			<roles>
-				<role>Dev Team</role>
-			</roles>
-			<properties>
-				<picUrl></picUrl>
-			</properties>
-		</developer>
-		</developers>
 
     <dependencies>
         <!-- Spring and Spring Boot dependencies -->
@@ -201,7 +113,6 @@
             <artifactId>bootstrap</artifactId>
             <version>${webjars-bootstrap.version}</version>
         </dependency>
-
 
         <!-- Testing -->
         <dependency>

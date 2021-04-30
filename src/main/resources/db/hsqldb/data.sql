@@ -92,6 +92,9 @@ INSERT INTO visits(id,pet_id,visit_date,description) VALUES (4, 7, '2013-01-04',
 
 INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (1, '2021-04-10', '2021-04-27', 7);
 INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (2, '2021-05-10', '2021-05-27', 6);
+INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (3, '2021-03-10', '2021-03-27', 7);
+INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (4, '2021-04-10', '2021-04-27', 6);
+
 
 
 INSERT INTO causes(id,name,description,budget_target,organization) VALUES (1, 'Sara PROTECTORA', 'Se necesita dinero para administrar material a perreras', 100000,'PROTECTORA');
@@ -107,3 +110,9 @@ INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (5,1000
 INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (6,1000,'2021-04-22','Harold',3);
 INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (7,2000,'2021-04-23','Harold',4);
 INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (8,1000,'2021-04-30','Jeff',4);
+
+INSERT INTO adoptions(id,descripcion,adoptado,pet, owner) VALUES (1, 'No puedo cuidar de mi gato', FALSE, 1,1);
+INSERT INTO adoptions(id,descripcion,adoptado,pet, owner) VALUES (2, 'No puedo cuidar de mi hamster', FALSE, 2,2);
+
+INSERT INTO requirements(id,adoption, new_owner, text) VALUES (1,1,2, 'Yo puedo');
+

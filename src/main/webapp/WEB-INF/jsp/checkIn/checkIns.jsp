@@ -44,9 +44,9 @@
         <c:if test="${checkIn['new']}">Nuevo </c:if> Check In
     </h2>        
 		<form:form modelAttribute="checkIn" class="form-horizontal" id="add-owner-form">
-	    	<select name="pet.name" id="owners">
+	    	<select name="pet" id="owners">
 	          <c:forEach var="pet" items="${lsMascota}">
-	            <option value="${pet}">${pet}</option>
+	            <option value="${pet.id}">${pet.name}</option>
 	          </c:forEach>
 	        </select>
 	        
@@ -60,7 +60,6 @@
 		        <br><br>
 		        <p>Fecha de Salida</p>
 		        <petclinic:inputField label="fecha_salida" name="fechaSalida"></petclinic:inputField>
-
 		        <br>
 	        </div>
 	        <button class="btn btn-default" type="submit">Crear Check In</button>
