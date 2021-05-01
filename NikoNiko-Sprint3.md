@@ -49,10 +49,10 @@ In the retrospective meeting, the team has a discussion about those results.
 | 20-4-2021         |          😎            |      😃         |      :smiley:          |         :smiley:          |          :smiley:       |        😖        |
 | 21-4-2021         |              :smiley:             |        😎       |      :smiley:          |        :neutral_face:         |      :smiley:          |        😎        |
 | 22-4-2021         |      😎              |     😎          |  😃                               |        😎         |         😎       |        😭        |
-| 23-4-2021         |       :neutral_face:             |        😎       |        :neutral_face:            |                 |      😎         |        :smiley:        |
-| 24-4-2021         |       :neutral_face:             |       😎        |         :smiley:           |                 |        :neutral_face:        |        😎          |
-| 25-4-2021         |       😎             |      😎         |              😎                     |                 |          😎      |         😎         |
-| 26-4-2021         |      😖              |      😎         |            :smiley:               |                 |        :smiley:          |        :smiley:         |
-| 27-4-2021         |       😎             |      😎         |             😎                      |                 |          😎      |         😎         |
-| 28-4-2021         |      😖              |     😎          |            :smiley:                       |                 |        😎       |         😎         |
-| 29-4-2021         |       😭              |               |                                   |                 |        :smiley:        |        :smiley:        |
+| 23-4-2021         |       :neutral_face:             |        😎       |        :neutral_face:            |         :smiley:        |      😎         |        :smiley:        |
+| 24-4-2021         |       :neutral_face:             |       😎        |         :smiley:           |         😎        |        :neutral_face:        |        😎          |
+| 25-4-2021         |       😎             |      😎         |              😎                     |          😎       |          😎      |         😎         |
+| 26-4-2021         |      😖              |      😎         |            :smiley:               |         😃        |        :smiley:          |        :smiley:         |
+| 27-4-2021         |       😎             |      😎         |             😎                      |         😎        |          😎      |         😎         |
+| 28-4-2021         |      😖              |     😎          |            :smiley:                       |        😎         |        😎       |         😎         |
+| 29-4-2021         |       😭              |               |                                   |         😎        |        :smiley:        |        :smiley:        |
