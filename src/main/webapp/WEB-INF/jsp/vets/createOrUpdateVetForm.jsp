@@ -15,16 +15,16 @@
             <petclinic:inputField label="First Name" name="firstName"/>
             <petclinic:inputField label="Last Name" name="lastName"/>
             <div class="control-group"> 
-            
+             
             
             <c:choose>
                         <c:when test="${vet['new']}">
-                            <div class="control-group">
+                            <div class="control-group" optional>
 
 
                  <c:forEach items="${specialties}" var="sp">
                   <input type="checkbox" name="specialties" value="${sp.id}">  ${sp.name}<br>
-                   </c:forEach>
+                   </c:forEach> 
 
             </div>
                         </c:when>

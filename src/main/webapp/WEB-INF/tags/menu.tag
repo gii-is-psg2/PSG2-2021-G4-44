@@ -39,6 +39,26 @@
 					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
 					<span>Veterinarians</span>
 				</petclinic:menuItem>
+				
+				<petclinic:menuItem active="${name eq 'causes'}" url="/causes"
+					title="causes">
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<span>Causes</span>
+				</petclinic:menuItem>
+				
+				<sec:authorize access="hasAuthority('owner')">
+				<petclinic:menuItem active="${name eq 'adoptions'}" url="/adoptions"
+					title="adoptions">
+					<span class="glyphicon glyphicon-record" aria-hidden="true"></span>
+					<span>Adopciones</span>
+				</petclinic:menuItem>
+				
+				<petclinic:menuItem active="${name eq 'checkIn'}" url="/checkIn/new"
+					title="adoptions">
+					<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+					<span>Check In</span>
+				</petclinic:menuItem>
+				  </sec:authorize>
 
 				<petclinic:menuItem active="${name eq 'error'}" url="/oups"
 					title="trigger a RuntimeException to see how it is handled">
