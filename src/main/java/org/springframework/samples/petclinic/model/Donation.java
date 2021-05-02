@@ -23,7 +23,7 @@ public class Donation extends BaseEntity{
 	
 	@NotNull
 	@Min(0)
-	private Integer amount;
+	private Double amount;
 	
     @Column(name = "date_of_donation")
     @DateTimeFormat(pattern = "yyyy/MM/dd")
@@ -35,11 +35,11 @@ public class Donation extends BaseEntity{
     @JoinColumn(name = "cause_id")
     private Cause cause;
     
-	public Integer getAmount() {
+	public Double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Integer amount) {
+	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
 
