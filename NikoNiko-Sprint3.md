@@ -58,4 +58,4 @@ In the retrospective meeting, the team has a discussion about those results.
 | 29-4-2021         |       😭              |       😃        |                                   |         😎        |          :neutral_face:      |        :smiley:        |
 | 30-4-2021         |         😭            |       😃        |                                   |                 |         😖       |              |
 | 1-5-2021         |          😎            |     😃          |                                   |                 |        😎        |              |
-| 2-5-2021         |        😭             |      😃         |                                   |                 |       :neutral_face:         |              |
+| 2-5-2021         |        😭             |      😃         |                                   |                 |       :smiley:         |              |
