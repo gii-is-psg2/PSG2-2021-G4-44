@@ -42,9 +42,9 @@ INSERT INTO vets VALUES (4, 'Rafael', 'Ortega');
 INSERT INTO vets VALUES (5, 'Henry', 'Stevens');
 INSERT INTO vets VALUES (6, 'Sharon', 'Jenkins');
 
-INSERT INTO specialties VALUES (1, 'radiologia');
-INSERT INTO specialties VALUES (2, 'cirugia');
-INSERT INTO specialties VALUES (3, 'odontologia');
+INSERT INTO specialties VALUES (1, 'radiology');
+INSERT INTO specialties VALUES (2, 'surgery');
+INSERT INTO specialties VALUES (3, 'dentistry');
 
 INSERT INTO vet_specialties VALUES (2, 1);
 INSERT INTO vet_specialties VALUES (3, 2);
@@ -52,11 +52,11 @@ INSERT INTO vet_specialties VALUES (3, 3);
 INSERT INTO vet_specialties VALUES (4, 2);
 INSERT INTO vet_specialties VALUES (5, 1);
 
-INSERT INTO types VALUES (1, 'gato');
-INSERT INTO types VALUES (2, 'perro');
-INSERT INTO types VALUES (3, 'lagarto');
-INSERT INTO types VALUES (4, 'serpiente');
-INSERT INTO types VALUES (5, 'pajaro');
+INSERT INTO types VALUES (1, 'cat');
+INSERT INTO types VALUES (2, 'dog');
+INSERT INTO types VALUES (3, 'lizard');
+INSERT INTO types VALUES (4, 'snake');
+INSERT INTO types VALUES (5, 'bird');
 INSERT INTO types VALUES (6, 'hamster');
 
 INSERT INTO owners VALUES (1, 'George', 'Franklin', '110 W. Liberty St.', 'Madison', '6085551023', 'owner1');
@@ -84,17 +84,35 @@ INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (11, 'Freddy', '201
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (12, 'Lucky', '2010-06-24', 2, 10);
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (13, 'Sly', '2012-06-08', 1, 10);
 
-INSERT INTO visits(id,pet_id,visit_date,description) VALUES (1, 7, '2013-01-01', 'vacuna contra la rabia');
-INSERT INTO visits(id,pet_id,visit_date,description) VALUES (2, 8, '2013-01-02', 'vacuna contra la rabia');
-INSERT INTO visits(id,pet_id,visit_date,description) VALUES (3, 8, '2013-01-03', 'castrado');
-INSERT INTO visits(id,pet_id,visit_date,description) VALUES (4, 7, '2013-01-04', 'esterilizado');
+
+INSERT INTO visits(id,pet_id,visit_date,description) VALUES (1, 7, '2013-01-01', 'rabies shot');
+INSERT INTO visits(id,pet_id,visit_date,description) VALUES (2, 8, '2013-01-02', 'rabies shot');
+INSERT INTO visits(id,pet_id,visit_date,description) VALUES (3, 8, '2013-01-03', 'neutered');
+INSERT INTO visits(id,pet_id,visit_date,description) VALUES (4, 7, '2013-01-04', 'spayed');
 
 INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (1, '2021-04-10', '2021-04-27', 7);
 INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (2, '2021-05-10', '2021-05-27', 6);
 INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (3, '2021-03-10', '2021-03-27', 7);
 INSERT INTO chechkins(id,fecha_entrada,fecha_salida,pet_id) VALUES (4, '2021-04-10', '2021-04-27', 6);
 
+
+
+INSERT INTO causes(id,name,description,budget_target,organization) VALUES (1, 'Sara PROTECTORA', 'Se necesita dinero para administrar material a perreras', 100000,'PROTECTORA');
+INSERT INTO causes(id,name,description,budget_target,organization) VALUES (2, 'Abrazo Animal', 'Se necesita dinero para administrar material a perreras', 100000,'PROTECTORA');
+INSERT INTO causes(id,name,description,budget_target,organization) VALUES (3, 'Hogar Refugio La Candela', 'Se necesita dinero para administrar material a perreras',  100000,'PROTECTORA');
+INSERT INTO causes(id,name,description,budget_target,organization) VALUES (4, ' Animalados', 'Se necesita dinero para administrar material a perreras', 100000,'PROTECTORA');
+
+INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (1,1000,'2021-04-20','George',1);
+INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (2,200,'2021-04-23','Harold',1);
+INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (3,4000,'2021-04-13','Jeff',2);
+INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (4,200,'2021-04-23','George',2);
+INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (5,10000,'2021-04-21','Jeff',3);
+INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (6,1000,'2021-04-22','Harold',3);
+INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (7,2000,'2021-04-23','Harold',4);
+INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (8,1000,'2021-04-30','Jeff',4);
+
 INSERT INTO adoptions(id,descripcion,adoptado,pet, owner) VALUES (1, 'No puedo cuidar de mi gato', FALSE, 1,1);
 INSERT INTO adoptions(id,descripcion,adoptado,pet, owner) VALUES (2, 'No puedo cuidar de mi hamster', FALSE, 2,2);
 
 INSERT INTO requirements(id,adoption, new_owner, text) VALUES (1,1,2, 'Yo puedo');
+
