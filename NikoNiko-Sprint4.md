@@ -23,7 +23,7 @@ In the retrospective meeting, the team has a discussion about those results.
 
 | Day           | J. A. Parejo  |
 | ------------- | ------------- |
-| Day 1         |    😄 (Meaning that I am learning, I like the work and I think I can do it without problems, but with some effort) |
+| Day 1         |    :smiley: (Meaning that I am learning, I like the work and I think I can do it without problems, but with some effort) |
 | Day 2         |    😎 (Meaning that I did no work regarding the PSG2 project)           |
 | Day 3         |    :neutral_face:  (Meaning that I feel I had to struggle, but the assigned work was fair and the day productive)          |:fearful:
 | Day 4         |    😖 (Meaning that I feel I have serious difficulties to accomplish the task, or the productivity of my day was awful)           |
@@ -36,14 +36,14 @@ In the retrospective meeting, the team has a discussion about those results.
 | ------------- | ------------- | -------------  | -------------  | -------------  | -------------  | -------------  |
 | 5-5-2021        |   😎    |               |               |      😎        |        😎       |      😎    |
 | 6-5-2021        |  😎     |               |               |        😎        |         😎       |     😎    |
-| 7-5-2021        |  :smiley:     |               |               |      😄         |       :smiley:        |     :smiley:    |
+| 7-5-2021        |  :smiley:     |               |               |      :smiley:         |       :smiley:        |     :smiley:    |
 | 8-5-2021        |  😎     |               |               |         😎       |         😎       |     😎     |
-| 9-5-2021        |   :smiley:    |               |               |     😄          |      :smiley:         |      :smiley:     |
+| 9-5-2021        |   :smiley:    |               |               |     :smiley:          |      :smiley:         |      :smiley:     |
 | 10-5-2021        |  😎     |               |               |         😎       |         😎       |     😎     |
-| 11-5-2021        | :smiley:      |               |               |      😄         |       :smiley:        |     :smiley:      |
+| 11-5-2021        | :smiley:      |               |               |      :smiley:         |       :smiley:        |     :smiley:      |
 | 12-5-2021        |  😎     |               |               |          😎      |          😎      |     😎     |
 | 13-5-2021        |   :smiley:    |               |               |       😎         |      😎          |    😎      |
-| 14-5-2021        |  :smiley:      |               |               |       😄        |       :smiley:        |     :smiley:      |
+| 14-5-2021        |  :smiley:      |               |               |       :smiley:        |       :smiley:        |     :smiley:      |
 | 15-5-2021        |       |               |               |               |               |          |
 | 16-5-2021        |       |               |               |               |               |          |
 | 17-5-2021        |       |               |               |               |               |          |
