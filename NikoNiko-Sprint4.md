@@ -45,9 +45,9 @@ In the retrospective meeting, the team has a discussion about those results.
 | 13-5-2021        |   :smiley:    |               |     :smiley:          |       😎         |      😎          |    😎      |
 | 14-5-2021        |  :smiley:      |               |    :smiley:           |       :smiley:        |       :smiley:        |     :smiley:      |
 | 15-5-2021        |   :neutral_face:     |               |    😎             |               |        😎       |     😎     |
-| 16-5-2021        |       |               |               |    :smiley:           |         😎      |     😎     |
-| 17-5-2021        |       |               |               |       😎          |         :neutral_face:      |     😖     |
-| 18-5-2021        |       |               |               |    :smiley:            |        😎       |     😎     |
-| 19-5-2021        |       |               |               |   :smiley:            |         😖      |     😭     |
+| 16-5-2021        |       |               |     :smiley:          |             |         😎      |     😎     |
+| 17-5-2021        |       |               |        😎        |                |         :neutral_face:      |     😖     |
+| 18-5-2021        |       |               |      :smiley:         |             |        😎       |     😎     |
+| 19-5-2021        |       |               |     :smiley:          |            |         😖      |     😭     |
 | 20-5-2021        |       |               |               |               |               |          |
        
