@@ -58,5 +58,5 @@ In the retrospective meeting, the team has a discussion about those results.
        
 
 
-DAY, ISABEL, DAVID, VICTOR, MARIA, JESUS, EUGENIO
-5-5-2021, 😎, 😎, 😎, 😎, 😎, 😎
+DAY | ISABEL | DAVID | VICTOR | MARIA | JESUS | EUGENIO
+5-5-2021 | 😎 | 😎 | 😎 | 😎 | 😎 | 😎
