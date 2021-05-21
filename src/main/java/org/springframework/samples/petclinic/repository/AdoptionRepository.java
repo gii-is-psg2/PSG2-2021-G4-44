@@ -23,7 +23,8 @@ public interface AdoptionRepository extends CrudRepository<Adoption, Integer> {
 	@Query("DELETE FROM Adoption a WHERE a.id = :id")
 	void remove(@Param("id") Integer id);
 	
-	
+	@Query("SELECT a FROM Adoption a WHERE a.owner.id = :ownerId")
+	Collection<Adoption> findByOwner(@Param("ownerId") Integer ownerId);
 
 	@Query("SELECT a FROM Adoption a WHERE a.adoptado = false")
 	Collection<Adoption> findAllFalse() throws DataAccessException;

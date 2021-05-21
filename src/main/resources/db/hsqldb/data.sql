@@ -111,8 +111,8 @@ INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (6,1000
 INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (7,2000,'2021-04-23','Harold',4);
 INSERT INTO donations(id,amount,date_of_donation,client,cause_id) VALUES (8,1000,'2021-04-30','Jeff',4);
 
-INSERT INTO adoptions(id,descripcion,adoptado,pet, owner) VALUES (1, 'No puedo cuidar de mi gato', FALSE, 1,1);
-INSERT INTO adoptions(id,descripcion,adoptado,pet, owner) VALUES (2, 'No puedo cuidar de mi hamster', FALSE, 2,2);
+INSERT INTO adoptions(id,descripcion,adoptado,pet, owner_id) VALUES (1, 'No puedo cuidar de mi gato', FALSE, 1,1);
+INSERT INTO adoptions(id,descripcion,adoptado,pet, owner_id) VALUES (2, 'No puedo cuidar de mi hamster', FALSE, 2,2);
 
 INSERT INTO requirements(id,adoption, new_owner, text) VALUES (1,1,2, 'Yo puedo');
 

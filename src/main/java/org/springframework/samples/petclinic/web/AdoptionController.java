@@ -50,9 +50,18 @@ public class AdoptionController {
 	@GetMapping(value = { "/adoptions"})
 	public String showAdoptionList(Map<String, Object> model) {
 		List<Adoption> adoptions = this.adoptionService.findAllFalse().stream().collect(Collectors.toList());
+		
+		User usuario = userService.findUser(SecurityContextHolder.getContext().getAuthentication().getName()).get();
+		Owner owner = ownerService.findOwnerByUser(usuario);
+		
+		List<Adoption> misAdoptions = (List<Adoption>) this.adoptionService.findByOwner(owner.getId());
+		
 		model.put("adoptions", adoptions);
+		model.put("misAdoptions", misAdoptions);
+		
 		return "adoptions/adoptionsList";
 	}
+	
 	@GetMapping(value = { "/adoptions/details/{adoptionId}" })
 	public String showAdoptionDetails(ModelMap model, @PathVariable("adoptionId") int adoptionId) {
 		if(adoptionService.findAdoptionById(adoptionId).get().getOwner().getUser().getUsername().equals(SecurityContextHolder.getContext().getAuthentication().getName())) {
