@@ -12,7 +12,7 @@
 
 
 
-	<h2>Mascotas en adopción:</h2>
+	<h2>Mascotas en adopcion:</h2>
 	<br>
 	<table id="adoptionTable" class="table table-striped ownersHead">
 
@@ -43,7 +43,7 @@
 		</tbody>
 	</table>
 
-	<h2>Mis mascotas en adopción:</h2>
+	<h2>Mis mascotas en adopcion:</h2>
 	<table id="adoptionTable" class="table table-striped ownersHead">
 			<thead>
 				<tr>
@@ -74,7 +74,7 @@
 		<sec:authorize access="hasAuthority('owner')">
 			<a href="/adoptions/new" class="btn  btn-success"> <span
 				class="glyphicon glyphicon-plus" aria-hidden="true"> </span>Añadir
-				Adopción
+				Adopcion
 			</a>
 		</sec:authorize>
 	</h2>
