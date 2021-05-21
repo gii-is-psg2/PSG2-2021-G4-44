@@ -49,12 +49,6 @@ public class CheckInService {
 
 	@Transactional(rollbackFor = ConstraintViolationException.class)
 	public void saveCheckIn(@Valid CheckIn checkIn) throws TwoPetsCheckInsException {
-		List<CheckIn> lista = findPetsCheckIns();
-		for (int i = 0; lista.size() > i; i++) {
-			if (lista.get(i).getPet().equals(checkIn.getPet())) {
-				throw new TwoPetsCheckInsException();
-			}
-		}
 		checkInRepository.save(checkIn);
 	}
 
