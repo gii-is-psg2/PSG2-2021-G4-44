@@ -13,7 +13,7 @@
     
     <p>Detalles de la causa: <c:out value="${cause.description}"/></p></b>
     <p>Cantidad objetivo: <c:out value="${cause.budgetTarget}"/> euros</p></b>
- 	<p>Organizaci�n tras el objetivo: <c:out value="${cause.organization}"/></p></b></b></b>
+ 	<p>Organizacion tras el objetivo: <c:out value="${cause.organization}"/></p></b></b></b>
  	
  	
     <table id="donationsTable" class="table table-striped" >

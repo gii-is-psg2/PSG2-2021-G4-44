@@ -34,7 +34,7 @@
 		    <spring:url value="${adoptionId}/delete" var="deleteUrl">
 		        <spring:param name="adoptionId" value="${adoption.id}"/>
 		    </spring:url>
-		    <a href="${fn:escapeXml(deleteUrl)}" class="btn btn-default">Eliminar Adopción</a>
+		    <a href="${fn:escapeXml(deleteUrl)}" class="btn btn-default">Eliminar Adopcion</a>
        	</c:when>
        <c:otherwise>
        
@@ -54,7 +54,7 @@
 	</c:choose>
 
 	<br><br>
-	<div><h2>Solicitudes de adopción:</h2>
+	<div><h2>Solicitudes de adopcion:</h2>
         <c:forEach items="${requirements}" var="requirement">
            <div>
             <tr>

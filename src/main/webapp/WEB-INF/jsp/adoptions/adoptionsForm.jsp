@@ -7,16 +7,16 @@
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
 <petclinic:layout pageName="adoptions">
-    <h2>Nueva adopción</h2>
+    <h2>Nueva adopcion</h2>
 
     <form:form modelAttribute="adoption" class="form-horizontal" id="add-owner-form">
-        <p>¿Qué  mascota quiere poner en adopción?</p>
+        <p>¿Que mascota quiere poner en adopcion?</p>
         <select name="pet" id="owners">
 	    	<c:forEach var="pet" items="${lsMascota}">
 	            <option value="${pet.id}">${pet.name}</option>
 	        </c:forEach>
 	    </select>
-	    <p>Añada una descripción: </p>
+	    <p>Añada una descripcion: </p>
         <petclinic:inputField label ="Descripción" name="descripcion" ></petclinic:inputField>
       	
   
