@@ -49,7 +49,7 @@
         </tbody>
     </table>
     <p>
-		<a href="/causes/new" class="btn  btn-success"><span
+		<a href="/causes/new" class="btn btn-default"><span
 			class="glyphicon glyphicon-plus" aria-hidden="true"></span>Crear Causa</a>
 
 	</p>
