@@ -54,6 +54,8 @@ public class VetController {
 	private final VetService vetService; 
 	
 	private final SpecialtyService specialtyService;
+	
+	private static final String VIEWS_VET_CREATE_OR_UPDATE_FORM = "vets/createOrUpdateVetForm";
 
 	@Autowired
 	public VetController(VetService clinicService, SpecialtyService specialtyService) {
@@ -90,32 +92,25 @@ public class VetController {
 	
 	@GetMapping("/vets/new")
 	public String editNewVet(ModelMap model) {
-		
-		model.addAttribute("vet",new Vet());
-		return "vets/createOrUpdateVetForm";
+		Vet vet = new Vet();
+		model.put("vet",vet);
+		return VIEWS_VET_CREATE_OR_UPDATE_FORM;
 	}
 	
 	@PostMapping("/vets/new")
-	public String saveNewVet(@Valid Vet vet, @RequestParam(value="specialties", required= false) Collection<Specialty> specialties, BindingResult binding,ModelMap model) {
+	public String saveNewVet(@Valid Vet vet, BindingResult result, @RequestParam(value="specialties", required= false)Collection<Specialty> specialties) {
 		
-		if(binding.hasErrors()) {		
-			return "vets/createOrUpdateVetForm";
+		if(result.hasErrors()){		
+			return VIEWS_VET_CREATE_OR_UPDATE_FORM;
 		}else {
-			
-				if (!(specialties==null)) {
-					for(Specialty s : specialties){
-						vet.addSpecialty(s);
-					}
+			if (!(specialties==null)) {
+				for(Specialty s : specialties){
+					vet.addSpecialty(s);
 				}
-            	this.vetService.save(vet);
-            }
-		
-			
-	
-			System.out.println("Excepción lanzada------------------------------------------------------------------------------");
+			}
 			this.vetService.save(vet);
 			return "redirect:/" + "vets";
-       
+            }
 	}
 	
 	@GetMapping("vets/{id}/edit")

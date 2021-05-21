@@ -58,6 +58,7 @@ public class AdoptionController {
 		
 		model.put("adoptions", adoptions);
 		model.put("misAdoptions", misAdoptions);
+
 		
 		return "adoptions/adoptionsList";
 	}
