@@ -90,6 +90,14 @@ public class CheckInController {
 	public String processCreationForm(@Valid CheckIn checkin, BindingResult result, ModelMap model) throws IOException, TwoPetsCheckInsException {
 		if (result.hasErrors()) {
 			model.addAttribute("checkIn", checkin);
+			User usuario = userService.findUser(SecurityContextHolder.getContext().getAuthentication().getName()).get();
+			Owner owner = ownerService.findOwnerByUser(usuario);
+			
+			List<Pet> lsMascota = owner.getPets();
+			model.addAttribute("lsMascota", lsMascota);
+			
+			Collection<CheckIn> lsCIs = checkInService.findCheckIns();
+			model.addAttribute("lsCIs", lsCIs);
 			return VIEWS_CHECKIN_CREATE_OR_UPDATE_FORM;
 		} else {
 				Pet pet = petService.findPetById(checkin.getPet().getId());

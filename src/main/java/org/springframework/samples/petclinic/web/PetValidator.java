@@ -15,6 +15,8 @@
  */
 package org.springframework.samples.petclinic.web;
 
+import java.time.LocalDate;
+
 import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
@@ -48,9 +50,11 @@ public class PetValidator implements Validator {
 			errors.rejectValue("type", REQUIRED, REQUIRED);
 		}
 
+		
+
 		// birth date validation
-		if (pet.getBirthDate() == null) {
-			errors.rejectValue("birthDate", REQUIRED, REQUIRED);
+		if (pet.getBirthDate() == null || pet.getBirthDate().isAfter(LocalDate.now()) ) {
+			errors.rejectValue("birthDate", REQUIRED+" y la fecha es incorrecta", REQUIRED+" y la fecha es incorrecta");
 		}
 	}
 

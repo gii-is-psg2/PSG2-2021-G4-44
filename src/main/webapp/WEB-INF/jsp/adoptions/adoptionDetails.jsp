@@ -29,7 +29,6 @@
         </tr>
     </table>
 	<c:choose>
-
         <c:when test="${me==true}">
         
 		    <spring:url value="${adoptionId}/delete" var="deleteUrl">

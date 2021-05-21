@@ -53,7 +53,7 @@ public class Adoption extends BaseEntity {
 	private Pet pet;
 
 	@OneToOne
-	@JoinColumn(name = "owner")
+	@JoinColumn(name = "owner_id")
 	private Owner owner;
 
 	@OneToMany(mappedBy="adoption", cascade = CascadeType.REMOVE)
