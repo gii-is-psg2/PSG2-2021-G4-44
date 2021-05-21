@@ -53,4 +53,9 @@ public class AdoptionService {
 	public Collection<Adoption> findAllFalse() throws DataAccessException {
 		return adoptionRepository.findAllFalse();
 	}
+	
+	@Transactional
+	public Collection<Adoption> findByOwner(Integer ownerId) throws DataAccessException {
+		return adoptionRepository.findByOwner(ownerId);
+	}
 }
