@@ -51,6 +51,7 @@ public class AdoptionController {
 	public String showAdoptionList(Map<String, Object> model) {
 		List<Adoption> adoptions = this.adoptionService.findAllFalse().stream().collect(Collectors.toList());
 		model.put("adoptions", adoptions);
+		
 		return "adoptions/adoptionsList";
 	}
 	@GetMapping(value = { "/adoptions/details/{adoptionId}" })
