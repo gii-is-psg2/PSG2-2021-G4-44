@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 import org.springframework.beans.support.MutableSortDefinition;
 import org.springframework.beans.support.PropertyComparator;
@@ -39,9 +40,10 @@ public class Cause extends BaseEntity{
 	@Column(name="budget_achieved")			//budget_achieved (dinero acumulado)
 	private Integer budgetAchieved;
 	
-	@NotNull
-	@Column(name = "budget_target")   //budget target (numeric)
-	@Min(0)							  //como mínino será 0
+	
+	//@NotNull //como mínino será 0
+	@Min(0)	
+	@Column(name = "budget_target")   //budget target (numeric)					  
 	private Double budgetTarget;
 	
 	
