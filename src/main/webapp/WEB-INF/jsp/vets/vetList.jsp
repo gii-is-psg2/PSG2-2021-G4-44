@@ -31,12 +31,7 @@
                     </c:forEach>
                     <c:if test="${vet.nrOfSpecialties == 0}">none</c:if>
                 </td>
-                <td>
-                    <spring:url value="/vets/{vetId}/delete" var="vetUrl">
-                        <spring:param name="vetId" value="${vet.id}"/>
-                    </spring:url>
-                    <a href="${fn:escapeXml(vetUrl)}">Eliminar Veterinario</a>
-                </td>
+                
                 <td>
                 <a href="<spring:url value="/vets.xml" htmlEscape="true" />">View as XML</a>
             	</td> 
@@ -44,6 +39,10 @@
             	<a href="/vets/${vet.id}/edit" class="btn  btn-success"><span
 					class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
             	</td>
+            	<td>
+                    <a href="/vets/${vet.id}/delete" class="btn  btn-success"><span
+                    class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                </td>
             </tr>
         </c:forEach>
         </tbody>

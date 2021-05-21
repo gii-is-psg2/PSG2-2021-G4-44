@@ -116,8 +116,8 @@
                                     <spring:param name="ownerId" value="${owner.id}"/>
                                     <spring:param name="petId" value="${pet.id}"/>
                                 </spring:url>
+                                <a href="${fn:escapeXml(visitUrl)}" class="btn btn-default">Añadir visita</a>
 
-                                <a href="${fn:escapeXml(visitUrl)}">AÃ±adir Visita</a>
 
                             </td>
                         </tr>
