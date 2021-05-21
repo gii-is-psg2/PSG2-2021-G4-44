@@ -55,11 +55,11 @@
 			<div class="form-group has-feedback">
 		        <br><br>
 		        <p>Fecha de Entrada</p>
-		        <petclinic:inputField label="fecha_entrada" name="fechaEntrada"></petclinic:inputField>
+		        <petclinic:inputField label="" name="fechaEntrada"></petclinic:inputField>
 		        
 		        <br><br>
 		        <p>Fecha de Salida</p>
-		        <petclinic:inputField label="fecha_salida" name="fechaSalida"></petclinic:inputField>
+		        <petclinic:inputField label="" name="fechaSalida"></petclinic:inputField>
 		        <br>
 	        </div>
 	        <button class="btn btn-default" type="submit">Crear Check In</button>
