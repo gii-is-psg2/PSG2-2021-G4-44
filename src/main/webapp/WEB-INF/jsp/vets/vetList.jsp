@@ -50,7 +50,7 @@
 
   	<p>
 		<a href="/vets/new" class="btn  btn-success"><span
-			class="glyphicon glyphicon-plus" aria-hidden="true"></span>Aï¿½adir Veterinario</a>
+			class="glyphicon glyphicon-plus" aria-hidden="true"></span>Añadir Veterinario</a>
 
 	</p>
     <table class="table-buttons">
