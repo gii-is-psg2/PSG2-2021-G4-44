@@ -32,7 +32,7 @@ public class CauseValidator implements Validator {
 		if (!StringUtils.hasLength(org)) {
 			errors.rejectValue("organization", "La organización no puede estar vacía");
 		}
-		if (cause.getBudgetTarget()==null || !Double.isNaN(cause.getBudgetTarget())) {
+		if (cause.getBudgetTarget()==null) {
 			errors.rejectValue("budgetTarget", "Tiene que haber una cantidad objetivo");
 		}
 		
