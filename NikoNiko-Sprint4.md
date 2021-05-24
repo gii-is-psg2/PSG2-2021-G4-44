@@ -57,7 +57,7 @@ In the retrospective meeting, the team has a discussion about those results.
 | 20-5-2021        |       😎        |      :neutral_face:         |       :neutral_face:           |       :neutral_face:        |               |     :neutral_face:     |
 | 21-5-2021        |     :smiley:            |              |      :smiley:             |              |               |     :smiley:     |
 | 22-5-2021        |        :smiley:             |              |      :smiley:             |              |               |    😎     |      
-| 23-5-2021        |         :smiley:            |              |      :smiley:             |              |               |    😎     |    
+| 23-5-2021        |         :smiley:            |              |      😎          |              |               |    😎     |    
 | 24-5-2021        |         :smiley:            |              |      :smiley:             |              |               |     :smiley:    |    
 | 25-5-2021        |                 |              |                |              |               |         |    
 | 26-5-2021        |                 |              |                |              |               |         |    
