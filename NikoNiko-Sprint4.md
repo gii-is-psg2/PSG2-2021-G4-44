@@ -62,6 +62,6 @@ In the retrospective meeting, the team has a discussion about those results.
 | 25-5-2021        |                 |              |                |              |       😎        |    😎     |    
 | 26-5-2021        |                 |              |                |              |         😖      |     😭    |    
 | 27-5-2021        |                 |              |                |              |        😎       |    😎     |    
-| 28-5-2021        |                 |              |                |              |               |     😖     |
-| 29-5-2021        |                 |              |                |              |               |     :smiley:     |
-| 30-5-2021        |                 |              |                |              |               |      :smiley:    |
+| 28-5-2021        |                 |              |                |              |         :neutral_face:      |     😖     |
+| 29-5-2021        |                 |              |                |              |        :smiley:       |     :smiley:     |
+| 30-5-2021        |                 |              |                |              |        :smiley:       |      :smiley:    |
