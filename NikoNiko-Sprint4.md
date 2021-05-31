@@ -59,10 +59,10 @@ In the retrospective meeting, the team has a discussion about those results.
 | 22-5-2021        |        :smiley:             |      😎        |      :smiley:             |       :smiley:       |        😎       |    😎     |      
 | 23-5-2021        |         :smiley:            |       😎       |      😎          |       😎       |       😎        |    😎     |    
 | 24-5-2021        |         :smiley:            |      :smiley:        |      :smiley:             |     :smiley:         |       :smiley:        |     :smiley:    |    
-| 25-5-2021        |                 |       :smiley:       |                |              |       😎        |    😎     |    
-| 26-5-2021        |                 |     :smiley:         |                |              |         😖      |     😭    |    
-| 27-5-2021        |                 |      😎        |                |              |        😎       |    😎     |    
-| 28-5-2021        |                 |      😖        |                |              |         :neutral_face:      |     😖     |
-| 29-5-2021        |                 |     😖         |                |              |        :smiley:       |     :smiley:     |
-| 30-5-2021        |                 |      😖        |                |              |        :smiley:       |      :smiley:    |
-| 31-5-2021        |                 |      :smiley:        |                |              |            |      :smiley:    |
+| 25-5-2021        |           😎       |       :smiley:       |                |              |       😎        |    😎     |    
+| 26-5-2021        |            😎      |     :smiley:         |                |              |         😖      |     😭    |    
+| 27-5-2021        |          :smiley:             |      😎        |                |              |        😎       |    😎     |    
+| 28-5-2021        |         :smiley:              |      😖        |                |              |         :neutral_face:      |     😖     |
+| 29-5-2021        |          :smiley:             |     😖         |                |              |        :smiley:       |     :smiley:     |
+| 30-5-2021        |            😎      |      😖        |                |              |        :smiley:       |      :smiley:    |
+| 31-5-2021        |       :smiley:                |      :smiley:        |                |              |            |      :smiley:    |
